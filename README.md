@@ -1,2 +1,2 @@
 # ATmega32-MCAL
-All-encompassing micro-controller abstraction layer (MCAL) of the ATmega32 microcontroller of the AVR family.
+The **Micro-Controller Abstraction Layer (MCAL)** of the *ATmega32* microcontroller of the *AVR* family, covering all built-in peripherals.
