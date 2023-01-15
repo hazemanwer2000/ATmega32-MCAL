@@ -7,6 +7,9 @@
  * 
  *************************************************************/
 
+#ifndef __BIT_UTILS_H__
+#define __BIT_UTILS_H__
+
 
 /*************************************************************
  * Description: Get mask of all bits (sized as the maximum integral type on a machine).
@@ -142,3 +145,6 @@ char countNumOfOnes(char reg) {
     }
     return cnt;
 }
+
+
+#endif /* __BIT_UTILS_H__ */

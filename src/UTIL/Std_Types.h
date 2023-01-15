@@ -7,6 +7,8 @@
  * 
  *************************************************************/
 
+#ifndef __STD_TYPES_H__
+#define __STD_TYPES_H__
 
 /*************************************************************
  * Description: Type-definitions of unsigned integral types.
@@ -41,3 +43,6 @@ typedef double f64;
  * 
  *************************************************************/
 #define FALSE 			0
+
+
+#endif /* __STD_TYPES_H__ */

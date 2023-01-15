@@ -53,13 +53,23 @@ DIO_tenuErrorStatus DIO_enuInit(void);
 
 
 /*************************************************************
- * Description: Set the state of the output pin in the DIO module.
+ * Description: Set an output pin in the DIO module.
  * Parameters:
  *      [1] Pin number (0-31). 
  * Return:
  *      Error status.
  *************************************************************/
 DIO_tenuErrorStatus DIO_enuSetPin(DIO_tuPinNumber Cpy_uPinNumber);
+
+
+/*************************************************************
+ * Description: Clear an output pin in the DIO module.
+ * Parameters:
+ *      [1] Pin number (0-31). 
+ * Return:
+ *      Error status.
+ *************************************************************/
+DIO_tenuErrorStatus DIO_enuClearPin(DIO_tuPinNumber Cpy_uPinNumber);
 
 
 /*************************************************************
