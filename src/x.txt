@@ -1,0 +1,2 @@
+MCAL/DIO/DIO.c: MCAL/DIO/DIO.c UTIL/Std_Types.h UTIL/Bit_Utils.h \
+ MCAL/DIO/DIO.h MCAL/DIO/DIO_Cfg.h MCAL/DIO/DIO_Priv.h
