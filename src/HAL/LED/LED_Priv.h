@@ -10,6 +10,17 @@
 #ifndef __LED_PRIV_H__
 #define __LED_PRIV_H__
 
+#include "LED.h"
+
+
+/*************************************************************
+ * Description: (static) Set an LED with a state, using its associated pin number.
+ * Parameters:
+ *      [1] Pin number.
+ * Return:
+ *      Error status.
+ *************************************************************/
+static LED_tenuErrorStatus LED_enuSetLedState(LED_tuPinNumber Cpy_uPinNumber, LED_tenuLedState Cpy_enuLedState);
 
 
 #endif /* __LED_PRIV_H__ */

@@ -18,57 +18,6 @@
 
 
 /*************************************************************
- * Description: Decode the bit number from the pin number. 
-                    (e.g: 0-7 -> (0) 0-7, 8-15 -> (1) 0-7, etc)
- * Parameters:
- *      [1] Pin number (0-31).
-        [2] Pointer, to return bit number (0-7) in.
- * Return:
- *      None.
- *************************************************************/
-static void DIO_voidDecodeBitNumber(DIO_tuPinNumber Cpy_uPinNumber, u8 *Add_pu8BitNumber) {
-    *Add_pu8BitNumber = Cpy_uPinNumber % DIO_PORT_SIZE;
-}
-
-
-/*************************************************************
- * Description: Decode the DDRx and PORTx from the pin number. 
-                    (e.g: 0-7 -> DDRA, 8-15 -> DDRB, etc)
- * Parameters:
- *      [1] Pin number (0-31).
-        [2] Pointer, to return the DDRx register in.
-        [3] Pointer, to return the PORTx register in.
- * Return:
- *      None.
- *************************************************************/
-static void DIO_voidDecodeRegisters(DIO_tuPinNumber Cpy_uPinNumber, volatile u8 **Add_ppu8RegDDR, 
-                                        volatile u8 **Add_ppu8RegPORT, volatile u8 **Add_ppu8RegPIN) {
-    switch (Cpy_uPinNumber / DIO_PORT_SIZE) {
-        case 0:
-            *Add_ppu8RegDDR = &DDRA;
-            *Add_ppu8RegPORT = &PORTA;
-            *Add_ppu8RegPIN = &PINA;
-            break;
-        case 1:
-            *Add_ppu8RegDDR = &DDRB;
-            *Add_ppu8RegPORT = &PORTB;
-            *Add_ppu8RegPIN = &PINB;
-            break;
-        case 2:
-            *Add_ppu8RegDDR = &DDRC;
-            *Add_ppu8RegPORT = &PORTC;
-            *Add_ppu8RegPIN = &PINC;
-            break;
-        case 3:
-            *Add_ppu8RegDDR = &DDRD;
-            *Add_ppu8RegPORT = &PORTD;
-            *Add_ppu8RegPIN = &PIND;
-            break;
-    }
-}
-
-
-/*************************************************************
  * Description: Initialization of the DIO module, using associated 
  *                  configuration file.
  * Parameters:
@@ -172,6 +121,57 @@ DIO_tenuErrorStatus DIO_enuInit(void) {
     );
     
     return DIO_enuOk;
+}
+
+
+/*************************************************************
+ * Description: (static) Decode the bit number from the pin number. 
+                    (e.g: 0-7 -> (0) 0-7, 8-15 -> (1) 0-7, etc)
+ * Parameters:
+ *      [1] Pin number (0-31).
+        [2] Pointer, to return bit number (0-7) in.
+ * Return:
+ *      None.
+ *************************************************************/
+static void DIO_voidDecodeBitNumber(DIO_tuPinNumber Cpy_uPinNumber, u8 *Add_pu8BitNumber) {
+    *Add_pu8BitNumber = Cpy_uPinNumber % DIO_PORT_SIZE;
+}
+
+
+/*************************************************************
+ * Description: (static) Decode the DDRx and PORTx from the pin number. 
+                    (e.g: 0-7 -> DDRA, 8-15 -> DDRB, etc)
+ * Parameters:
+ *      [1] Pin number (0-31).
+        [2] Pointer, to return the DDRx register in.
+        [3] Pointer, to return the PORTx register in.
+ * Return:
+ *      None.
+ *************************************************************/
+static void DIO_voidDecodeRegisters(DIO_tuPinNumber Cpy_uPinNumber, volatile u8 **Add_ppu8RegDDR, 
+                                        volatile u8 **Add_ppu8RegPORT, volatile u8 **Add_ppu8RegPIN) {
+    switch (Cpy_uPinNumber / DIO_PORT_SIZE) {
+        case 0:
+            *Add_ppu8RegDDR = &DDRA;
+            *Add_ppu8RegPORT = &PORTA;
+            *Add_ppu8RegPIN = &PINA;
+            break;
+        case 1:
+            *Add_ppu8RegDDR = &DDRB;
+            *Add_ppu8RegPORT = &PORTB;
+            *Add_ppu8RegPIN = &PINB;
+            break;
+        case 2:
+            *Add_ppu8RegDDR = &DDRC;
+            *Add_ppu8RegPORT = &PORTC;
+            *Add_ppu8RegPIN = &PINC;
+            break;
+        case 3:
+            *Add_ppu8RegDDR = &DDRD;
+            *Add_ppu8RegPORT = &PORTD;
+            *Add_ppu8RegPIN = &PIND;
+            break;
+    }
 }
 
 

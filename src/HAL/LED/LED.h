@@ -14,24 +14,18 @@
 
 
 /*************************************************************
- * Description: Maximum number of LEDs that can be connected to the hardware.
- *
- *************************************************************/
-#define LED_MAX_NUM_OF_LEDS          DIO_PIN_COUNT
-
-
-/*************************************************************
  * Description: Error status, return by various functions.
  *      (Ok):                   Successful.
  *      (NotOk):                Failed.
- *      (InvalidPinNumber):     Failed, no LED is connected to this pin, or within 
- *                                  'init' function, larger than maximum number of LEDs.
+ *      (InvalidPinNumber):     Failed, no LED is connected to this pin.
+ *      (InvalidPinCfg):        Failed, pin configured as input, not output.
  * 
  *************************************************************/
 typedef enum {
     LED_enuOk = 0,
     LED_enuNotOk,
-    LED_enuInvalidPinNumber           
+    LED_enuInvalidPinNumber,
+    LED_enuInvalidPinCfg    
 } LED_tenuErrorStatus;
 
 

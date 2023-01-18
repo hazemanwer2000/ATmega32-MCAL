@@ -26,18 +26,52 @@ LED_tenuErrorStatus LED_enuInit(void) {
     LED_tenuErrorStatus Loc_enuErrorStatus = LED_enuOk;
 
     while (Loc_uPinNumberIterator < LED_NUM_OF_LEDS) {
-        if (LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_uPinNumber > LED_MAX_NUM_OF_LEDS - 1) {
-            Loc_enuErrorStatus = LED_enuInvalidPinNumber;
-            break;
+        if (LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_enuInitLedState == LED_enuLedOn) {
+            Loc_enuErrorStatus = LED_enuLedOn(LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_uPinNumber);
         } else {
-            if (LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_enuInitLedState == LED_enuLedOn) {
-                LED_enuLedOn(LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_uPinNumber);
-            } else {
-                LED_enuLedOff(LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_uPinNumber);
-            }
+            Loc_enuErrorStatus = LED_enuLedOff(LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_uPinNumber);
+        }
+
+        if (Loc_enuErrorStatus != LED_enuOk) {
+            break;
         }
 
         Loc_uPinNumberIterator++;
+    }
+
+    return Loc_enuErrorStatus;
+}
+
+
+/*************************************************************
+ * Description: (static) Set an LED with a state, using its associated pin number.
+ * Parameters:
+ *      [1] Pin number.
+ * Return:
+ *      Error status.
+ *************************************************************/
+static LED_tenuErrorStatus LED_enuSetLedState(LED_tuPinNumber Cpy_uPinNumber, LED_tenuLedState Cpy_enuLedState) {
+    LED_tenuErrorStatus Loc_enuErrorStatus = LED_enuOk;
+    DIO_tenuErrorStatus Loc_enuDIOErrorStatus = DIO_enuOk;
+    
+    if (LED_strucLedCfgs[Cpy_uPinNumber].Mem_enuActiveCfg == LED_enuActiveHigh) {
+        if (Cpy_enuLedState == LED_enuLedOn) {
+            Loc_enuDIOErrorStatus = DIO_enuSetPin(Cpy_uPinNumber);
+        } else {
+            Loc_enuDIOErrorStatus =  DIO_enuClearPin(Cpy_uPinNumber);
+        }
+    } else {
+        if (Cpy_enuLedState == LED_enuLedOn) {
+            Loc_enuDIOErrorStatus = DIO_enuClearPin(Cpy_uPinNumber);
+        } else {
+            Loc_enuDIOErrorStatus =  DIO_enuOnPin(Cpy_uPinNumber);
+        }
+    }
+
+    if (Loc_enuDIOErrorStatus == DIO_enuInvalidPinNumber) {
+        Loc_enuErrorStatus = LED_enuInvalidPinNumber;
+    } else if (Loc_enuDIOErrorStatus == DIO_enuNotOutputPin) {
+        Loc_enuErrorStatus = LED_enuInvalidPinCfg;
     }
 
     return Loc_enuErrorStatus;
@@ -52,11 +86,7 @@ LED_tenuErrorStatus LED_enuInit(void) {
  *      Error status.
  *************************************************************/
 LED_tenuErrorStatus LED_enuLedOn(LED_tuPinNumber Cpy_uPinNumber) {
-    LED_tenuErrorStatus Loc_enuErrorStatus = LED_enuOk;
-    
-    if (Cpy_uPinNumber > DIO_) {
-
-    }
+    return LED_enuSetLedState(Cpy_uPinNumber, LED_enuLedOn);
 }
 
 
@@ -68,5 +98,5 @@ LED_tenuErrorStatus LED_enuLedOn(LED_tuPinNumber Cpy_uPinNumber) {
  *      Error status.
  *************************************************************/
 LED_tenuErrorStatus LED_enuLedOff(LED_tuPinNumber Cpy_uPinNumber) {
-
+    return LED_enuSetLedState(Cpy_uPinNumber, LED_enuLedOff);
 }
