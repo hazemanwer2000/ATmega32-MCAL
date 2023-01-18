@@ -23,7 +23,7 @@
  * Parameters:
  *      [X]
  * Return:
- *      Error status.
+ *      Error status (DIO_enuOk)
  *************************************************************/
 DIO_tenuErrorStatus DIO_enuInit(void) {
     
@@ -180,7 +180,7 @@ static void DIO_voidDecodeRegisters(DIO_tuPinNumber Cpy_uPinNumber, volatile u8 
  * Parameters:
  *      [1] Pin number (0-31). 
  * Return:
- *      Error status.
+ *      Error status (DIO_enuOk, DIO_enuInvalidPinNumber, DIO_enuNotOutputPin)
  *************************************************************/
 DIO_tenuErrorStatus DIO_enuSetPin(DIO_tuPinNumber Cpy_uPinNumber) {
     u8 Loc_u8BitNumber = 0;
@@ -209,7 +209,7 @@ DIO_tenuErrorStatus DIO_enuSetPin(DIO_tuPinNumber Cpy_uPinNumber) {
  * Parameters:
  *      [1] Pin number (0-31). 
  * Return:
- *      Error status.
+ *      Error status (DIO_enuOk, DIO_enuInvalidPinNumber, DIO_enuNotOutputPin)
  *************************************************************/
 DIO_tenuErrorStatus DIO_enuClearPin(DIO_tuPinNumber Cpy_uPinNumber) {
     u8 Loc_u8BitNumber = 0;
@@ -239,7 +239,7 @@ DIO_tenuErrorStatus DIO_enuClearPin(DIO_tuPinNumber Cpy_uPinNumber) {
  *      [1] Pin number (0-31).
  *      [2] Pointer, to return the state of the input pin in.
  * Return:
- *      Error status.
+ *      Error status (DIO_enuOk, DIO_enuNullPtr, DIO_enuInvalidPinNumber, DIO_enuNotInputPin)
  *************************************************************/
 DIO_tenuErrorStatus DIO_enuGetPin(DIO_tuPinNumber Cpy_uPinNumber, DIO_tenuPinState *Add_enuPinState) {
     u8 Loc_u8BitNumber = 0;

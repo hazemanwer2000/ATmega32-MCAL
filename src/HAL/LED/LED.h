@@ -42,7 +42,7 @@ typedef DIO_tuPinNumber LED_tuPinNumber;
  * Parameters:
  *      [X]
  * Return:
- *      Error status.
+ *      Error status (Led_enuOk, LED_enuInvalidPinNumber, LED_enuInvalidPinCfg)
  *************************************************************/
 LED_tenuErrorStatus LED_enuInit(void);
 
@@ -52,7 +52,7 @@ LED_tenuErrorStatus LED_enuInit(void);
  * Parameters:
  *      [1] Pin number.
  * Return:
- *      Error status.
+ *      Error status (Led_enuOk, LED_enuInvalidPinNumber, LED_enuInvalidPinCfg)
  *************************************************************/
 LED_tenuErrorStatus LED_enuLedOn(LED_tuPinNumber Cpy_uPinNumber);
 
@@ -62,7 +62,7 @@ LED_tenuErrorStatus LED_enuLedOn(LED_tuPinNumber Cpy_uPinNumber);
  * Parameters:
  *      1] Pin number.
  * Return:
- *      Error status.
+ *      Error status (Led_enuOk, LED_enuInvalidPinNumber, LED_enuInvalidPinCfg)
  *************************************************************/
 LED_tenuErrorStatus LED_enuLedOff(LED_tuPinNumber Cpy_uPinNumber);
 

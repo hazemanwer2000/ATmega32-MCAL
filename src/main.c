@@ -1,8 +1,8 @@
 
-#include "flickering_leds.h"
+#include "more_less_leds.h"
 
 void main(void) {
-	flickering_leds();
+	more_less_leds();
 
     while (1) {};
 }

@@ -18,7 +18,7 @@
  * Parameters:
  *      [1] Pin number.
  * Return:
- *      Error status.
+ *      Error status (Led_enuOk, LED_enuInvalidPinNumber, LED_enuInvalidPinCfg)
  *************************************************************/
 static LED_tenuErrorStatus LED_enuSetLedState(LED_tuPinNumber Cpy_uPinNumber, LED_tenuLedState Cpy_enuLedState);
 
