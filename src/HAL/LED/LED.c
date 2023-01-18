@@ -64,7 +64,7 @@ static LED_tenuErrorStatus LED_enuSetLedState(LED_tuPinNumber Cpy_uPinNumber, LE
         if (Cpy_enuLedState == LED_enuLedStateOn) {
             Loc_enuDIOErrorStatus = DIO_enuClearPin(Cpy_uPinNumber);
         } else {
-            Loc_enuDIOErrorStatus =  DIO_enuOnPin(Cpy_uPinNumber);
+            Loc_enuDIOErrorStatus =  DIO_enuSetPin(Cpy_uPinNumber);
         }
     }
 

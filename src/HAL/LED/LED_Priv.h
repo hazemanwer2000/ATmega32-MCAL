@@ -1,7 +1,7 @@
 /*************************************************************
  * 
  * Filename: LED_Priv.h
- * Description: Configuration header file of the LED driver.
+ * Description: Private header file of the LED driver.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
