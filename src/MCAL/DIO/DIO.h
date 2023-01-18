@@ -14,6 +14,13 @@
 
 
 /*************************************************************
+ * Description: Maximum number of pins in the ATmega32 uController.
+ *
+ *************************************************************/
+#define DIO_PIN_COUNT           32
+
+
+/*************************************************************
  * Description: Error status, return by various functions.
  *      (Ok):                   Successful.
  *      (NotOk):                Failed.
