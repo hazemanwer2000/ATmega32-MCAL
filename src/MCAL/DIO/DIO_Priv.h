@@ -15,6 +15,20 @@
 
 
 /*************************************************************
+ * Description: Maximum number of pins in the ATmega32 uController.
+ *
+ *************************************************************/
+#define DIO_PIN_COUNT           32
+
+
+/*************************************************************
+ * Description: Number of bits in a port in the ATmega32 uController.
+ *
+ *************************************************************/
+#define DIO_PORT_SIZE           8
+
+
+/*************************************************************
  * Description: Decode the bit number from the pin number. 
                     (e.g: 0-7 -> (0) 0-7, 8-15 -> (1) 0-7, etc)
  * Parameters:

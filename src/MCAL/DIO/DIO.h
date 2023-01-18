@@ -15,12 +15,20 @@
 
 /*************************************************************
  * Description: Error status, return by various functions.
+ *      (Ok):                   Successful.
+ *      (NotOk):                Failed.
+ *      (NullPtr):              Failed, null pointer passed as argument.
+ *      (NotOutputPin):         Failed, pin is not configured as output.
+ *      (NotInputPin):          Failed, pin is not configured as input.
  * 
  *************************************************************/
 typedef enum {
     DIO_enuOk = 0,
     DIO_enuNotOk,
-    DIO_enuNullPtr
+    DIO_enuNullPtr,
+    DIO_enuInvalidPinNumber,
+    DIO_enuNotOutputPin,
+    DIO_enuNotInputPin                     
 } DIO_tenuErrorStatus;
 
 

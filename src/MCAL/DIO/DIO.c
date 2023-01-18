@@ -27,7 +27,7 @@
  *      None.
  *************************************************************/
 static void DIO_voidDecodeBitNumber(DIO_tuPinNumber Cpy_uPinNumber, u8 *Add_pu8BitNumber) {
-    *Add_pu8BitNumber = Cpy_uPinNumber % 8;
+    *Add_pu8BitNumber = Cpy_uPinNumber % DIO_PORT_SIZE;
 }
 
 
@@ -43,7 +43,7 @@ static void DIO_voidDecodeBitNumber(DIO_tuPinNumber Cpy_uPinNumber, u8 *Add_pu8B
  *************************************************************/
 static void DIO_voidDecodeRegisters(DIO_tuPinNumber Cpy_uPinNumber, volatile u8 **Add_ppu8RegDDR, 
                                         volatile u8 **Add_ppu8RegPORT, volatile u8 **Add_ppu8RegPIN) {
-    switch (Cpy_uPinNumber / 8) {
+    switch (Cpy_uPinNumber / DIO_PORT_SIZE) {
         case 0:
             *Add_ppu8RegDDR = &DDRA;
             *Add_ppu8RegPORT = &PORTA;
@@ -183,18 +183,24 @@ DIO_tenuErrorStatus DIO_enuInit(void) {
  *      Error status.
  *************************************************************/
 DIO_tenuErrorStatus DIO_enuSetPin(DIO_tuPinNumber Cpy_uPinNumber) {
-    u8 Loc_u8BitNumber;
-    volatile u8 *Loc_pu8RegDDR, *Loc_pu8RegPORT, *Loc_pu8RegPIN;
+    u8 Loc_u8BitNumber = 0;
+    volatile u8 *Loc_pu8RegDDR = NULL, *Loc_pu8RegPORT = NULL, *Loc_pu8RegPIN = NULL;
+    DIO_tenuErrorStatus Loc_enuErrorStatus = DIO_enuOk;
     
-    DIO_voidDecodeBitNumber(Cpy_uPinNumber, &Loc_u8BitNumber);
-    DIO_voidDecodeRegisters(Cpy_uPinNumber, &Loc_pu8RegDDR, &Loc_pu8RegPORT, &Loc_pu8RegPIN);
-    
-    if (GET_BIT(*Loc_pu8RegDDR, Loc_u8BitNumber) == DIO_DIR_OUTPUT) {
-        *Loc_pu8RegPORT = SET_BIT(*Loc_pu8RegPORT, Loc_u8BitNumber);
-        return DIO_enuOk;
+    if (Cpy_uPinNumber > DIO_PIN_COUNT - 1) {
+        Loc_enuErrorStatus = DIO_enuInvalidPinNumber;
     } else {
-        return DIO_enuNotOk;
+        DIO_voidDecodeBitNumber(Cpy_uPinNumber, &Loc_u8BitNumber);
+        DIO_voidDecodeRegisters(Cpy_uPinNumber, &Loc_pu8RegDDR, &Loc_pu8RegPORT, &Loc_pu8RegPIN);
+        
+        if (GET_BIT(*Loc_pu8RegDDR, Loc_u8BitNumber) != DIO_DIR_OUTPUT) {
+            Loc_enuErrorStatus = DIO_enuNotOutputPin;
+        } else {
+            *Loc_pu8RegPORT = SET_BIT(*Loc_pu8RegPORT, Loc_u8BitNumber);
+        }
     }
+    
+    return Loc_enuErrorStatus;
 }
 
 
@@ -206,18 +212,24 @@ DIO_tenuErrorStatus DIO_enuSetPin(DIO_tuPinNumber Cpy_uPinNumber) {
  *      Error status.
  *************************************************************/
 DIO_tenuErrorStatus DIO_enuClearPin(DIO_tuPinNumber Cpy_uPinNumber) {
-    u8 Loc_u8BitNumber;
-    volatile u8 *Loc_pu8RegDDR, *Loc_pu8RegPORT, *Loc_pu8RegPIN;
+    u8 Loc_u8BitNumber = 0;
+    volatile u8 *Loc_pu8RegDDR = NULL, *Loc_pu8RegPORT = NULL, *Loc_pu8RegPIN = NULL;
+    DIO_tenuErrorStatus Loc_enuErrorStatus = DIO_enuOk;
     
-    DIO_voidDecodeBitNumber(Cpy_uPinNumber, &Loc_u8BitNumber);
-    DIO_voidDecodeRegisters(Cpy_uPinNumber, &Loc_pu8RegDDR, &Loc_pu8RegPORT, &Loc_pu8RegPIN);
-    
-    if (GET_BIT(*Loc_pu8RegDDR, Loc_u8BitNumber) == DIO_DIR_OUTPUT) {
-        *Loc_pu8RegPORT = CLR_BIT(*Loc_pu8RegPORT, Loc_u8BitNumber);
-        return DIO_enuOk;
+    if (Cpy_uPinNumber > DIO_PIN_COUNT - 1) {
+        Loc_enuErrorStatus = DIO_enuInvalidPinNumber;
     } else {
-        return DIO_enuNotOk;
+        DIO_voidDecodeBitNumber(Cpy_uPinNumber, &Loc_u8BitNumber);
+        DIO_voidDecodeRegisters(Cpy_uPinNumber, &Loc_pu8RegDDR, &Loc_pu8RegPORT, &Loc_pu8RegPIN);
+        
+        if (GET_BIT(*Loc_pu8RegDDR, Loc_u8BitNumber) != DIO_DIR_OUTPUT) {
+            Loc_enuErrorStatus = DIO_enuNotOutputPin;
+        } else {
+            *Loc_pu8RegPORT = CLR_BIT(*Loc_pu8RegPORT, Loc_u8BitNumber);
+        }
     }
+    
+    return Loc_enuErrorStatus;
 }
 
 
@@ -230,16 +242,24 @@ DIO_tenuErrorStatus DIO_enuClearPin(DIO_tuPinNumber Cpy_uPinNumber) {
  *      Error status.
  *************************************************************/
 DIO_tenuErrorStatus DIO_enuGetPin(DIO_tuPinNumber Cpy_uPinNumber, DIO_tenuPinState *Add_enuPinState) {
-    u8 Loc_u8BitNumber;
-    volatile u8 *Loc_pu8RegDDR, *Loc_pu8RegPORT, *Loc_pu8RegPIN;
+    u8 Loc_u8BitNumber = 0;
+    volatile u8 *Loc_pu8RegDDR = NULL, *Loc_pu8RegPORT = NULL, *Loc_pu8RegPIN = NULL;
+    DIO_tenuErrorStatus Loc_enuErrorStatus = DIO_enuOk;
     
-    DIO_voidDecodeBitNumber(Cpy_uPinNumber, &Loc_u8BitNumber);
-    DIO_voidDecodeRegisters(Cpy_uPinNumber, &Loc_pu8RegDDR, &Loc_pu8RegPORT, &Loc_pu8RegPIN);
-    
-    if (GET_BIT(*Loc_pu8RegDDR, Loc_u8BitNumber) == DIO_DIR_INPUT) {
-        *Add_enuPinState = GET_BIT(*Loc_pu8RegPIN, Loc_u8BitNumber);
-        return DIO_enuOk;
+    if (Add_enuPinState == NULL) {
+        Loc_enuErrorStatus = DIO_enuNullPtr;
+    } else if (Cpy_uPinNumber > DIO_PIN_COUNT - 1) {
+        Loc_enuErrorStatus = DIO_enuInvalidPinNumber;
     } else {
-        return DIO_enuNotOk;
+        DIO_voidDecodeBitNumber(Cpy_uPinNumber, &Loc_u8BitNumber);
+        DIO_voidDecodeRegisters(Cpy_uPinNumber, &Loc_pu8RegDDR, &Loc_pu8RegPORT, &Loc_pu8RegPIN);
+        
+        if (GET_BIT(*Loc_pu8RegDDR, Loc_u8BitNumber) != DIO_DIR_INPUT) {
+            Loc_enuErrorStatus = DIO_enuNotInputPin;
+        } else {
+            *Add_enuPinState = GET_BIT(*Loc_pu8RegPIN, Loc_u8BitNumber);
+        }
     }
+    
+    return Loc_enuErrorStatus;
 }

@@ -45,4 +45,11 @@ typedef double f64;
 #define FALSE 			0
 
 
+/*************************************************************
+ * Description: Macro-definition of what it means to be a NULL pointer.
+ * 
+ *************************************************************/
+#define NULL            ((void *) 0)
+
+
 #endif /* __STD_TYPES_H__ */

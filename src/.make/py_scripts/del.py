@@ -1,17 +1,16 @@
 #############################################################
 # 
-# Filename: append_line.py
-# Description: Implemented as a command-line function, that appends
-#               a line to a file
+# Filename: del.py
+# Description: Implemented as a command-line function, that deletes
+#                   each passed file
 #                   
-# Parameters [Implemented with flags]:
-#   [1] -f DIR_PATH
-#   [2] -l LINE
+# Parameters:
+#   [1] SPACE-SEPARATED LIST OF FILES
 # Return:
 #   [stdout]
 #       None
 #   [else] 
-#       Appends a line to a file
+#       Deletes each passed file
 # Author: Eng. Hazem Anwer
 # Github: https://github.com/hazemanwer2000
 # 
@@ -26,5 +25,6 @@ for i in range(1, len(sys.argv), 2):
     args[sys.argv[i][1:]] = sys.argv[i+1]
 
 # Append to file
-with open(args['f'], 'a') as f:
-    f.write(args['l'])
+for i in range(1, len(sys.argv)):
+    if os.path.exists(sys.argv[i]):
+        os.remove(sys.argv[i])
