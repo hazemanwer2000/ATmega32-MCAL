@@ -10,7 +10,7 @@
 #define BUTTON_INC          16
 #define BUTTON_DEC          17
 
-void flickering_leds() {
+void more_less_leds() {
     u8 cnt = 0;
     BUTTON_tenuButtonState buttonState;
 
