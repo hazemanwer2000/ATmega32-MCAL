@@ -29,14 +29,6 @@ DEPS := $(SRCS:.c=.d)
 
 
 
-# Compiler command (or, path)
-CC := avr-gcc
-
-# Object-copy (or, translator, e.g: '.elf' binary to '.hex' ASCII) command (or, path)
-OBJCPY := avr-objcopy
-
-
-
 # Compiler Optimization Options
 OPTIMIZE := -O0 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums
 
@@ -45,12 +37,19 @@ SPECS := -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\
 
 
 
-# Pre-processor, compiler, linker and object-copy flags
+# Compiler command (or, path)
+CC := avr-gcc
+
+# Object-copy (or, translator, e.g: '.elf' binary to '.hex' ASCII) command (or, path)
+OBJCPY := avr-objcopy
+
+
+
+# Compiler, pre-processor, linker, and object-copy flags
 CFLAGS := -w -std=gnu99 $(SPECS) $(OPTIMIZE)
 PPFLAGS := $(HDR_DIRS)
 LDFLAGS := -Wl,--gc-sections
 CPY_FLAGS := -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures
-
 
 
 # Name of target executable file
@@ -69,4 +68,6 @@ clean:
 	$(CC) $(PPFLAGS) -MM -MT $(@:.d=.o) $^ > $@
 	$(PY_APPEND_CMD) $@ $(CC) -c $(PPFLAGS) $(CFLAGS) $^ -o $(@:.d=.o)
 
+ifneq (clean,$(MAKECMDGOALS))
 -include $(DEPS)
+endif

@@ -7,6 +7,8 @@
  * 
  *************************************************************/
 
+#include <util/delay.h>
+
 #include "BUTTON.h"
 #include "BUTTON_Cfg.h"
 #include "BUTTON_Priv.h"
@@ -26,7 +28,8 @@ BUTTON_tenuErrorStatus BUTTON_enuGetButtonState(BUTTON_tuPinNumber Cpy_uPinNumbe
     DIO_tenuErrorStatus Loc_enuDIOErrorStatus = DIO_enuOk;
     BUTTON_tenuErrorStatus Loc_enuErrorStatus = BUTTON_enuOk;
     DIO_tenuPinState Loc_enuDIOPinState = DIO_enuHigh;
-    BUTTON_tenuButtonState Loc_enuButtonState = BUTTON_enuButtonPressed;
+    BUTTON_tenuButtonState Loc_enuPrevButtonState = BUTTON_enuButtonPressed, 
+                            Loc_enuButtonState = BUTTON_enuButtonPressed;
     BUTTON_tuPinNumber Loc_uPinNumberIterator = 0;
     u8 Loc_u8DebouncingCounter = 0;
 
@@ -45,7 +48,18 @@ BUTTON_tenuErrorStatus BUTTON_enuGetButtonState(BUTTON_tuPinNumber Cpy_uPinNumbe
                     Loc_enuErrorStatus = BUTTON_enuInvalidPinCfg;
                     break;
                 case DIO_enuOk:
-                    *Add_enuButtonState = Loc_enuDIOPinState ^ BUTTON_strucButtonCfgs[Loc_uPinNumberIterator].Mem_enuActiveCfg;
+                    Loc_enuPrevButtonState = Loc_enuDIOPinState ^ BUTTON_strucButtonCfgs[Loc_uPinNumberIterator].Mem_enuActiveCfg;
+                    while (Loc_u8DebouncingCounter < BUTTON_DEBOUNCE_COUNT) {
+                        _delay_ms(BUTTON_DEBOUNCE_DELAY_MS);
+                        DIO_enuGetPin(Cpy_uPinNumber, &Loc_enuButtonState);
+                        if (Loc_enuButtonState == Loc_enuPrevButtonState) {
+                            Loc_u8DebouncingCounter++;
+                        } else {
+                            Loc_u8DebouncingCounter = 0;
+                        }
+                        Loc_enuPrevButtonState = Loc_enuButtonState;
+                    }
+                    *Add_enuButtonState = Loc_enuButtonState;
                     break;
             }
             break;

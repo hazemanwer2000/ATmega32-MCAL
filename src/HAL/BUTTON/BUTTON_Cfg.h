@@ -14,6 +14,14 @@
 
 
 /*************************************************************
+ * Description: Debounce configuration, count and delay in ms.
+ * 
+ *************************************************************/
+#define BUTTON_DEBOUNCE_COUNT               5
+#define BUTTON_DEBOUNCE_DELAY_MS            5
+
+
+/*************************************************************
  * Description: Number of LEDs connected to the hardware.
  * 
  *************************************************************/
