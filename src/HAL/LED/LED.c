@@ -26,7 +26,7 @@ LED_tenuErrorStatus LED_enuInit(void) {
     LED_tenuErrorStatus Loc_enuErrorStatus = LED_enuOk;
 
     while (Loc_uPinNumberIterator < LED_NUM_OF_LEDS) {
-        if (LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_enuInitLedState == LED_enuLedOn) {
+        if (LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_enuInitLedState == LED_enuLedStateOn) {
             Loc_enuErrorStatus = LED_enuLedOn(LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_uPinNumber);
         } else {
             Loc_enuErrorStatus = LED_enuLedOff(LED_strucLedCfgs[Loc_uPinNumberIterator].Mem_uPinNumber);
@@ -55,13 +55,13 @@ static LED_tenuErrorStatus LED_enuSetLedState(LED_tuPinNumber Cpy_uPinNumber, LE
     DIO_tenuErrorStatus Loc_enuDIOErrorStatus = DIO_enuOk;
     
     if (LED_strucLedCfgs[Cpy_uPinNumber].Mem_enuActiveCfg == LED_enuActiveHigh) {
-        if (Cpy_enuLedState == LED_enuLedOn) {
+        if (Cpy_enuLedState == LED_enuLedStateOn) {
             Loc_enuDIOErrorStatus = DIO_enuSetPin(Cpy_uPinNumber);
         } else {
             Loc_enuDIOErrorStatus =  DIO_enuClearPin(Cpy_uPinNumber);
         }
     } else {
-        if (Cpy_enuLedState == LED_enuLedOn) {
+        if (Cpy_enuLedState == LED_enuLedStateOn) {
             Loc_enuDIOErrorStatus = DIO_enuClearPin(Cpy_uPinNumber);
         } else {
             Loc_enuDIOErrorStatus =  DIO_enuOnPin(Cpy_uPinNumber);
@@ -86,7 +86,7 @@ static LED_tenuErrorStatus LED_enuSetLedState(LED_tuPinNumber Cpy_uPinNumber, LE
  *      Error status.
  *************************************************************/
 LED_tenuErrorStatus LED_enuLedOn(LED_tuPinNumber Cpy_uPinNumber) {
-    return LED_enuSetLedState(Cpy_uPinNumber, LED_enuLedOn);
+    return LED_enuSetLedState(Cpy_uPinNumber, LED_enuLedStateOn);
 }
 
 
@@ -98,5 +98,5 @@ LED_tenuErrorStatus LED_enuLedOn(LED_tuPinNumber Cpy_uPinNumber) {
  *      Error status.
  *************************************************************/
 LED_tenuErrorStatus LED_enuLedOff(LED_tuPinNumber Cpy_uPinNumber) {
-    return LED_enuSetLedState(Cpy_uPinNumber, LED_enuLedOff);
+    return LED_enuSetLedState(Cpy_uPinNumber, LED_enuLedStateOff);
 }

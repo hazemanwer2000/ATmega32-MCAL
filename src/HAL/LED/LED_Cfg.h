@@ -35,8 +35,8 @@ typedef enum {
  * 
  *************************************************************/
 typedef enum {
-    LED_enuLedOff = 0,
-    LED_enuLedOn = 1
+    LED_enuLedStateOff = 0,
+    LED_enuLedStateOn = 1
 } LED_tenuLedState;
 
 
