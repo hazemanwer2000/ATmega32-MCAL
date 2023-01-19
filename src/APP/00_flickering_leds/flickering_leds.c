@@ -7,7 +7,7 @@
 #include "DIO.h"
 #include "LED.h"
 
-#define DELAY_MS            150
+#define DELAY_MS            500
 
 void flickering_leds() {
     s8 i = 0;
@@ -22,7 +22,7 @@ void flickering_leds() {
             LED_enuLedOn(i);
         }
 
-        for (i = 6; i < 0; i--) {
+        for (i = 6; i >= 0; i--) {
             _delay_ms(DELAY_MS);
             LED_enuLedOff(i+1);
             LED_enuLedOn(i);
