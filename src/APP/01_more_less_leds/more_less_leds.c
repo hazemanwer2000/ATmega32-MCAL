@@ -1,5 +1,12 @@
-
-#define F_CPU		1000000UL
+/*************************************************************
+ * 
+ * Filename: more_less_leds.c
+ * Description: Application, increment and decrement the number
+ *                  of LEDs on.
+ * Author: Eng. Hazem Anwer
+ * Github: https://github.com/hazemanwer2000
+ * 
+ *************************************************************/
 
 #include "Std_Types.h"
 
@@ -7,11 +14,28 @@
 #include "LED.h"
 #include "BUTTON.h"
 
+
+/*************************************************************
+ * Description: Pin number of the incrementing / decrementing buttons.
+ * 
+ *************************************************************/
 #define BUTTON_INC          16
 #define BUTTON_DEC          17
 
+
+/*************************************************************
+ * Description: Maximum number of LEDs.
+ * 
+ *************************************************************/
 #define MAX_LEDS            8
 
+
+/*************************************************************
+ * Description: Entry point to the application.
+ * Parameters:
+ *      [X]
+ * 
+ *************************************************************/
 void more_less_leds() {
     s8 cnt = -1;
     BUTTON_tenuButtonState stateInc, stateDec;

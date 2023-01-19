@@ -7,7 +7,7 @@
  * 
  *************************************************************/
 
-#include <avr/io.h>
+#include "IO_Map.h"
 
 #include "Std_Types.h"
 #include "Bit_Utils.h"
@@ -150,28 +150,11 @@ static void DIO_voidDecodeBitNumber(DIO_tuPinNumber Cpy_uPinNumber, u8 *Add_pu8B
  *************************************************************/
 static void DIO_voidDecodeRegisters(DIO_tuPinNumber Cpy_uPinNumber, volatile u8 **Add_ppu8RegDDR, 
                                         volatile u8 **Add_ppu8RegPORT, volatile u8 **Add_ppu8RegPIN) {
-    switch (Cpy_uPinNumber / DIO_PORT_SIZE) {
-        case 0:
-            *Add_ppu8RegDDR = &DDRA;
-            *Add_ppu8RegPORT = &PORTA;
-            *Add_ppu8RegPIN = &PINA;
-            break;
-        case 1:
-            *Add_ppu8RegDDR = &DDRB;
-            *Add_ppu8RegPORT = &PORTB;
-            *Add_ppu8RegPIN = &PINB;
-            break;
-        case 2:
-            *Add_ppu8RegDDR = &DDRC;
-            *Add_ppu8RegPORT = &PORTC;
-            *Add_ppu8RegPIN = &PINC;
-            break;
-        case 3:
-            *Add_ppu8RegDDR = &DDRD;
-            *Add_ppu8RegPORT = &PORTD;
-            *Add_ppu8RegPIN = &PIND;
-            break;
-    }
+    DIO_tuPinNumber Loc_uOffsetFactor = Cpy_uPinNumber / DIO_PORT_SIZE;
+
+    *Add_ppu8RegDDR = &DDRA + DIO_REG_OFFSET * Loc_uOffsetFactor;
+    *Add_ppu8RegPORT = &PORTA + DIO_REG_OFFSET * Loc_uOffsetFactor;
+    *Add_ppu8RegPIN = &PINA + DIO_REG_OFFSET * Loc_uOffsetFactor;
 }
 
 

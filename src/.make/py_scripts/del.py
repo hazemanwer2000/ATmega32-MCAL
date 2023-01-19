@@ -19,11 +19,6 @@
 import sys
 import os
 
-# Get all arguments in a dictionary called 'args'
-args = {}
-for i in range(1, len(sys.argv), 2):
-    args[sys.argv[i][1:]] = sys.argv[i+1]
-
 # Append to file
 for i in range(1, len(sys.argv)):
     if os.path.exists(sys.argv[i]):

@@ -15,6 +15,14 @@
 
 
 /*************************************************************
+ * Description: The offset, in ATmega32's memory map, between one DIO
+ *                   module's registers, and the next.
+ *
+ *************************************************************/
+#define DIO_REG_OFFSET         -3
+
+
+/*************************************************************
  * Description: Number of bits in a port in the ATmega32 uController.
  *
  *************************************************************/

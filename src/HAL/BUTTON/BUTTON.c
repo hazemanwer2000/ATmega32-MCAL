@@ -7,7 +7,7 @@
  * 
  *************************************************************/
 
-#include <util/delay.h>
+#include "Delay.h"
 
 #include "BUTTON.h"
 #include "BUTTON_Cfg.h"
@@ -50,7 +50,7 @@ BUTTON_tenuErrorStatus BUTTON_enuGetButtonState(BUTTON_tuPinNumber Cpy_uPinNumbe
                 case DIO_enuOk:
                     Loc_enuPrevButtonState = Loc_enuDIOPinState ^ BUTTON_strucButtonCfgs[Loc_uPinNumberIterator].Mem_enuActiveCfg;
                     while (Loc_u8DebouncingCounter < BUTTON_DEBOUNCE_COUNT) {
-                        _delay_ms(BUTTON_DEBOUNCE_DELAY_MS);
+                        delay_ms(BUTTON_DEBOUNCE_DELAY_MS);
                         DIO_enuGetPin(Cpy_uPinNumber, &Loc_enuButtonState);
                         if (Loc_enuButtonState == Loc_enuPrevButtonState) {
                             Loc_u8DebouncingCounter++;
