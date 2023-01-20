@@ -44,10 +44,6 @@ void more_less_leds() {
     LED_enuInit();
 
     while (1) {
-        
-    }
-
-    while (1) {
         while (1)  {
             BUTTON_enuGetButtonState(BUTTON_INC, &stateInc);
             BUTTON_enuGetButtonState(BUTTON_DEC, &stateDec);

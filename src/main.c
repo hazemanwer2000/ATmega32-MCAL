@@ -7,8 +7,8 @@
  * 
  *************************************************************/
 
-#include "seven_segments.h"
+#include "counting_segments.h"
 
 void main(void) {
-    seven_segments();
+    counting_segments();
 }

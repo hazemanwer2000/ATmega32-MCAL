@@ -15,12 +15,19 @@
  * 
  *************************************************************/
 const LED_tstrucLedCfg LED_strucLedCfgs[LED_NUM_OF_LEDS] = {
-    {0, LED_enuActiveHigh, LED_enuLedStateOn},
-    {1, LED_enuActiveHigh, LED_enuLedStateOn},
-    {2, LED_enuActiveHigh, LED_enuLedStateOn},
-    {3, LED_enuActiveHigh, LED_enuLedStateOn},
+    {0, LED_enuActiveHigh, LED_enuLedStateOff},
+    {1, LED_enuActiveHigh, LED_enuLedStateOff},
+    {2, LED_enuActiveHigh, LED_enuLedStateOff},
+    {3, LED_enuActiveHigh, LED_enuLedStateOff},
+    {4, LED_enuActiveHigh, LED_enuLedStateOff},
+    {5, LED_enuActiveHigh, LED_enuLedStateOff},
+    {6, LED_enuActiveHigh, LED_enuLedStateOff},
 
-    {4, LED_enuActiveHigh, LED_enuLedStateOn},
-    {5, LED_enuActiveHigh, LED_enuLedStateOn},
-    {6, LED_enuActiveHigh, LED_enuLedStateOn}
+    {24, LED_enuActiveHigh, LED_enuLedStateOff},
+    {25, LED_enuActiveHigh, LED_enuLedStateOff},
+    {26, LED_enuActiveHigh, LED_enuLedStateOff},
+    {27, LED_enuActiveHigh, LED_enuLedStateOff},
+    {28, LED_enuActiveHigh, LED_enuLedStateOff},
+    {29, LED_enuActiveHigh, LED_enuLedStateOff},
+    {30, LED_enuActiveHigh, LED_enuLedStateOff}
 };

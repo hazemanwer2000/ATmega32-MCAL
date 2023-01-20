@@ -1,7 +1,8 @@
 /*************************************************************
  * 
  * Filename: seven_segments.c
- * Description: Application, displaying numbers on the seven segment display.
+ * Description: Application, displaying numbers on the seven segment display,
+ *                  incrementing and decrementing using push-buttons.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
@@ -22,30 +23,6 @@
  * 
  *************************************************************/
 #define LED_COUNT               7
-
-
-/*************************************************************
- * Description: Pin map (a-g -> 0-6)
- * 
- *************************************************************/
-u8 map[LED_COUNT] = {0, 1, 2, 3, 4, 5, 6};
-
-
-/*************************************************************
- * Description: Pin map (a-g -> 0-6)
- * 
- *************************************************************/
-void display_number(u8 encoded) {
-    u8 i = 0;
-
-    for (i = 0; i < LED_COUNT; i++) {
-        if (GET_BIT(encoded, i) != FALSE) {
-            LED_enuLedOn(map[i]);
-        } else {
-            LED_enuLedOff(map[i]);
-        }
-    }
-}
 
 
 /*************************************************************
@@ -87,6 +64,42 @@ u8 patterns[] = {
 
 
 /*************************************************************
+ * Description: Pin map (a-g -> 0-6)
+ * 
+ *************************************************************/
+u8 mapLeast[LED_COUNT] = {0, 1, 2, 3, 4, 5, 6};
+u8 mapMost[LED_COUNT] = {24, 25, 26, 27, 28, 29, 30};
+
+
+/*************************************************************
+ * Description: Pin map (a-g -> 0-6)
+ * 
+ *************************************************************/
+void display_number(u8 num, u8 *map) {
+    u8 i = 0;
+    u8 encoded = 0;
+
+    encoded = patterns[num];
+
+    for (i = 0; i < LED_COUNT; i++) {
+        if (GET_BIT(encoded, i) != FALSE) {
+            LED_enuLedOn(map[i]);
+        } else {
+            LED_enuLedOff(map[i]);
+        }
+    }
+}
+
+
+/*************************************************************
+ * Description: Pins connected to the on-off buttons.
+ * 
+ *************************************************************/
+#define PIN_BUTTON_DEC          17
+#define PIN_BUTTON_INC          16
+
+
+/*************************************************************
  * Description: Entry point to the application.
  * Parameters:
  *      [X]
@@ -94,14 +107,39 @@ u8 patterns[] = {
  *************************************************************/
 void seven_segments() {
     u8 i = 0;
+    BUTTON_tenuButtonState stateInc, stateDec;
+    u8 breakFlag = 0;
 
     DIO_enuInit();
     LED_enuInit();
 
+    display_number(0, mapLeast);
+    display_number(0, mapMost);
+
     while (1) {
-        for (i = 0; i <= 9; i++) {
-            display_number(patterns[i]);
-            delay_ms(600);
+        while (1)  {
+            BUTTON_enuGetButtonState(PIN_BUTTON_INC, &stateInc);
+            BUTTON_enuGetButtonState(PIN_BUTTON_DEC, &stateDec);
+            if (stateInc == BUTTON_enuButtonReleased && stateDec == BUTTON_enuButtonReleased) {
+                break;
+            }
+        }
+
+        while (1)  {
+            BUTTON_enuGetButtonState(PIN_BUTTON_INC, &stateInc);
+            BUTTON_enuGetButtonState(PIN_BUTTON_DEC, &stateDec);
+            if (stateInc == BUTTON_enuButtonPressed) {
+                if (i < 99) { i++; breakFlag = TRUE; }
+            } else if (stateDec == BUTTON_enuButtonPressed) {
+                if (i > 0) { i--; breakFlag = TRUE; }
+            }
+
+            if (breakFlag != FALSE) {
+                display_number(i % 10, mapLeast);
+                display_number(i / 10, mapMost);
+                breakFlag = FALSE;
+                break;
+            }
         }
     }
 }
