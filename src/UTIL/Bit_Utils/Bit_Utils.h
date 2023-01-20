@@ -1,7 +1,7 @@
 /*************************************************************
  * 
  * Filename: Bit_Utils.h
- * Description: Macros and functions, performing various bit manipulation operations.
+ * Description: Macros and function prototypes, performing various bit manipulation operations.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
@@ -137,14 +137,7 @@
  * Description: Count number of ones within a register of arbitrary size. 
  * 
  *************************************************************/
-char countNumOfOnes(char reg) {
-    int cnt = 0;
-    while (reg != 0) {
-        reg &= (reg - 1);
-        cnt++;
-    }
-    return cnt;
-}
+char countNumOfOnes(char reg);
 
 
 #endif /* __BIT_UTILS_H__ */

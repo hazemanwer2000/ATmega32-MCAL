@@ -7,8 +7,8 @@
  * 
  *************************************************************/
 
-#include "more_less_leds.h"
+#include "seven_segments.h"
 
 void main(void) {
-    more_less_leds();
+    seven_segments();
 }

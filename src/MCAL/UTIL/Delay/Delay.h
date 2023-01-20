@@ -14,7 +14,7 @@
 
 
 /*************************************************************
- * Description: The speed of the uController, in milliseconds.
+ * Description: The speed of the uController, in MHz.
  * 
  *************************************************************/
 #define CLK_SPEED               1.0
