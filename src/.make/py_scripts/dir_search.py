@@ -26,9 +26,9 @@ args = {}
 for i in range(1, len(sys.argv), 2):
     args[sys.argv[i][1:]] = sys.argv[i+1]
 
-# Function: Match extension
+# Function: Match extension ('ext' must be lowercase)
 def match_ext(f, ext):
-    return f[-len(ext):] == ext
+    return (f[-len(ext):]) == ext
 
 # Function: Get list of matching files
 def dir_search(dir_path, ext):

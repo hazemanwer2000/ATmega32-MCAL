@@ -7,8 +7,8 @@
  * 
  *************************************************************/
 
-#include "counting_segments.h"
+#include "segments_timer.h"
 
 void main(void) {
-    counting_segments();
+    segments_counter();
 }

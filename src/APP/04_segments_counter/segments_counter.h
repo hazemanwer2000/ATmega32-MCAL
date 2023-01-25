@@ -1,7 +1,7 @@
 /*************************************************************
  * 
- * Filename: seven_segments.h
- * Description: Header file to the 'seven_segments' application.
+ * Filename: segments_counter.h
+ * Description: Header file to the 'segments_counter' application.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
@@ -14,4 +14,4 @@
  *      [X]
  * 
  *************************************************************/
-void seven_segments();
+void segments_timer();

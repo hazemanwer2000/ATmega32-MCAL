@@ -1,7 +1,7 @@
 /*************************************************************
  * 
- * Filename: counting_segments.h
- * Description: Header file to the 'counting_segments' application.
+ * Filename: segments_timer.h
+ * Description: Header file to the 'segments_timer' application.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
@@ -14,4 +14,4 @@
  *      [X]
  * 
  *************************************************************/
-void counting_segments();
+void segments_timer();
