@@ -23,9 +23,9 @@
  * Parameters:
  *      [X]
  * Return:
- *      Error status (DIO_enuOk)
+ *      None.
  *************************************************************/
-DIO_tenuErrorStatus DIO_enuInit(void) {
+void DIO_voidInit(void) {
     
         /* DDRX (Data Direction Register) */
     
@@ -119,8 +119,6 @@ DIO_tenuErrorStatus DIO_enuInit(void) {
                         DIO_PIN25_CFG,
                         DIO_PIN24_CFG
     );
-    
-    return DIO_enuOk;
 }
 
 

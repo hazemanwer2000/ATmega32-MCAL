@@ -40,7 +40,7 @@ void more_less_leds() {
     s8 cnt = -1;
     BUTTON_tenuButtonState stateInc, stateDec;
 
-    DIO_enuInit();
+    DIO_voidInit();
     LED_enuInit();
 
     while (1) {

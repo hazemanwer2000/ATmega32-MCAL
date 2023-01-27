@@ -1,14 +1,14 @@
 /*************************************************************
  * 
- * Filename: main.c
- * Description: Contains 'main' function, which calls upon an application.
+ * Filename: GLOBAL_INT_Priv.h
+ * Description: Private header file of the GLOBAL_INT driver.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "button_led_interrupt.h"
+#ifndef __GLOBAL_INT_PRIV_H__
+#define __GLOBAL_INT_PRIV_H__
 
-void main(void) {
-    button_led_interrupt();
-}
+
+#endif /* __GLOBAL_INT_PRIV_H__ */

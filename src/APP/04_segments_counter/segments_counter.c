@@ -58,7 +58,7 @@ void segments_counter() {
     s8 cnt = 0;
     BUTTON_tenuButtonState stateInc, stateDec;
 
-    DIO_enuInit();
+    DIO_voidInit();
     LED_enuInit();
     SEVEN_SEGMENT_enuInit();
 

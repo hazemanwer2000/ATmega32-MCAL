@@ -56,7 +56,7 @@ void hold_set(int i) {
 void segments_timer() {
     s8 i = 0;
 
-    DIO_enuInit();
+    DIO_voidInit();
     LED_enuInit();
     SEVEN_SEGMENT_enuInit();
 

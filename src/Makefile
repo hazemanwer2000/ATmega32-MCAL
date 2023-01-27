@@ -55,10 +55,13 @@ LDFLAGS := -Wl,--gc-sections
 CPY_FLAGS := -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures
 
 
+
 # Name of target executable file
 TARGET := main.elf
 
-.PHONY: clean
+.PHONY: clean all
+
+all: $(TARGET)
 
 $(TARGET): $(OBJS) $(LIB_OBJS)
 	$(CC) $(PPFLAGS) $(CFLAGS) $(LDFLAGS) $^ -o $@
@@ -75,6 +78,14 @@ clean:
 	$(CC) $(PPFLAGS) -MM -MT $(@:.d=.o) $^ > $@
 	$(PY_APPEND_CMD) $@ $(CC) -c $(PPFLAGS) $(CFLAGS) $^ -o $(@:.d=.o)
 
+
+
+# Including dependencies (case: No command)
 ifeq (,$(MAKECMDGOALS))
+-include $(DEPS)
+endif
+
+# Including dependencies (case: 'all')
+ifeq (all,$(MAKECMDGOALS))
 -include $(DEPS)
 endif

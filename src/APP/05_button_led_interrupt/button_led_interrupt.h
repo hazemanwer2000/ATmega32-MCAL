@@ -1,20 +1,18 @@
 /*************************************************************
  * 
- * Filename: BUTTON_Cfg.c
- * Description: Configuration source file of the BUTTON driver.
+ * Filename: button_led_interrupt.h
+ * Description: Application, increment and decrement the number
+ *                  of LEDs on (interrupt-based).
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "BUTTON_Cfg.h"
-
 
 /*************************************************************
- * Description: (definition) Array of configurations, for each button connected. 
+ * Description: Entry point to the application.
+ * Parameters:
+ *      [X]
  * 
  *************************************************************/
-const BUTTON_tstrucButtonCfg BUTTON_strucButtonCfgs[BUTTON_NUM_OF_BUTTONS] = {
-    {26, BUTTON_enuActiveHigh},
-    {27, BUTTON_enuActiveHigh}
-};
+void button_led_interrupt();

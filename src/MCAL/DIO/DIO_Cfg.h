@@ -71,13 +71,13 @@
 #define DIO_PIN22_DIR               DIO_DIR_INPUT
 #define DIO_PIN23_DIR               DIO_DIR_INPUT
 
-#define DIO_PIN24_DIR               DIO_DIR_OUTPUT
-#define DIO_PIN25_DIR               DIO_DIR_OUTPUT
-#define DIO_PIN26_DIR               DIO_DIR_OUTPUT
-#define DIO_PIN27_DIR               DIO_DIR_OUTPUT
-#define DIO_PIN28_DIR               DIO_DIR_OUTPUT
-#define DIO_PIN29_DIR               DIO_DIR_OUTPUT
-#define DIO_PIN30_DIR               DIO_DIR_OUTPUT
+#define DIO_PIN24_DIR               DIO_DIR_INPUT
+#define DIO_PIN25_DIR               DIO_DIR_INPUT
+#define DIO_PIN26_DIR               DIO_DIR_INPUT
+#define DIO_PIN27_DIR               DIO_DIR_INPUT
+#define DIO_PIN28_DIR               DIO_DIR_INPUT
+#define DIO_PIN29_DIR               DIO_DIR_INPUT
+#define DIO_PIN30_DIR               DIO_DIR_INPUT
 #define DIO_PIN31_DIR               DIO_DIR_INPUT
 
 

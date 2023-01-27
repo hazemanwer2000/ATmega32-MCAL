@@ -108,6 +108,7 @@
  * 
  *************************************************************/
 #define REPLACE_FIELD(REG, I, J, FIELD)         ((FIELD) << (I)) | ((REG) & ~MSK_I2J((J), (I)));
+#define REPLACE_BIT(REG, I, FIELD)              REPLACE_FIELD(REG, I, I, FIELD)
 
 
 /*************************************************************
@@ -115,6 +116,14 @@
  * 
  *************************************************************/
 #define BITWISE_SWAP(REG)           (MSK_ALT & ((REG) >> 1)) | ((MSK_ALT << 1) & ((REG) << 1))
+
+
+/*************************************************************
+ * Description: Concat two binary series of digits.
+ * 
+ *************************************************************/
+#define BIN_CONCAT__(BY, BX)                        (0b##BY##BX)
+#define BIN_CONCAT(BY, BX)                          BIN_CONCAT__(BY, BX)
 
 
 /*************************************************************

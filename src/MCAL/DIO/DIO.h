@@ -62,9 +62,9 @@ typedef u8 DIO_tuPinNumber;
  * Parameters:
  *      [X]
  * Return:
- *      Error status (DIO_enuOk)
+ *      None.
  *************************************************************/
-DIO_tenuErrorStatus DIO_enuInit(void);
+void DIO_voidInit(void);
 
 
 /*************************************************************

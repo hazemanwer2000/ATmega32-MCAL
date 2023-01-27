@@ -1,24 +1,45 @@
 /*************************************************************
  * 
- * Filename: flickering_leds.c
- * Description: Application, simple and sequential LED animation.
- *                  Uses 8 LEDs.
+ * Filename: button_led_interrupt.c
+ * Description: Application, increment and decrement the number
+ *                  of LEDs on (interrupt-based).
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "Delay.h"
 #include "Std_Types.h"
+
 #include "DIO.h"
 #include "LED.h"
+#include "GLOBAL_INT.h"
+#include "EXT_INT.h"
+
+#include <avr/interrupt.h>
 
 
 /*************************************************************
- * Description: The transition's delay, in milliseconds.
+ * Description: Maximum number of LEDs.
  * 
  *************************************************************/
-#define DELAY_MS            500
+#define MAX_LEDS            8
+
+
+s8 cnt = -1;
+
+
+ISR (INT0_vect) {
+    if (cnt < MAX_LEDS-1) {
+        LED_enuLedOn(++cnt);
+    }
+}
+
+
+ISR (INT1_vect) {
+    if (cnt >= 0) {
+        LED_enuLedOff(cnt--);
+    }
+}
 
 
 /*************************************************************
@@ -27,22 +48,11 @@
  *      [X]
  * 
  *************************************************************/
-void flickering_leds() {
-    s8 i = 0;
+void button_led_interrupt() {
     DIO_voidInit();
     LED_enuInit();
-
-    while (1) {
-        for (i = 1; i < 8; i++) {
-            delay_ms(DELAY_MS);
-            LED_enuLedOff(i-1);
-            LED_enuLedOn(i);
-        }
-
-        for (i = 6; i >= 0; i--) {
-            delay_ms(DELAY_MS);
-            LED_enuLedOff(i+1);
-            LED_enuLedOn(i);
-        }
-    }
+    EXT_INT_voidInit();
+    GLOBAL_INT_voidInit();
+ LED_enuLedOn(++cnt);
+    while (1) {}
 }

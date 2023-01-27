@@ -1,14 +1,15 @@
 /*************************************************************
  * 
- * Filename: main.c
- * Description: Contains 'main' function, which calls upon an application.
+ * Filename: EXT_INT_Priv.h
+ * Description: Private header file of the EXT_INT driver.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "button_led_interrupt.h"
+#ifndef __EXT_INT_PRIV_H__
+#define __EXT_INT_PRIV_H__
 
-void main(void) {
-    button_led_interrupt();
-}
+
+
+#endif /* __EXT_INT_PRIV_H__ */
