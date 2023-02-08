@@ -7,8 +7,8 @@
  * 
  *************************************************************/
 
-#include "keypad_testing.h"
+#include "ADC_potentiometer.h"
 
 void main(void) {
-    keypad_testing();
+    ADC_potentiometer();
 }

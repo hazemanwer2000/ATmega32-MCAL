@@ -13,6 +13,7 @@
 #define __ADC_H__
 
 #include "Std_Types.h"
+#include "IO_Map.h"
 
 
 /*************************************************************
@@ -21,9 +22,9 @@
  *      [2] AVCC: 'AVCC' (with external capacitor on 'AREF' pin).
  *      [3] Internal: Internal 2.56V voltage (with external capacitor on 'AREF' pin).
  *************************************************************/
-#define ADC_VoltageReference_AREF                   0
-#define ADC_VoltageReference_AVCC                   1
-#define ADC_VoltageReference_Internal               3
+#define ADC_VoltageReference_AREF                   (0 << REFS0)
+#define ADC_VoltageReference_AVCC                   (1 << REFS0)
+#define ADC_VoltageReference_Internal               (3 << REFS0)
 
 
 /*************************************************************
@@ -32,14 +33,14 @@
  *      [2] AVCC: 'AVCC' (with external capacitor on 'AREF' pin).
  *      [3] Internal: Internal 2.56V voltage (with external capacitor on 'AREF' pin).
  *************************************************************/
-#define ADC_InputChannel_ADC0                       0
-#define ADC_InputChannel_ADC1                       1
-#define ADC_InputChannel_ADC2                       2
-#define ADC_InputChannel_ADC3                       3
-#define ADC_InputChannel_ADC4                       4
-#define ADC_InputChannel_ADC5                       5
-#define ADC_InputChannel_ADC6                       6
-#define ADC_InputChannel_ADC7                       7
+#define ADC_InputChannel_ADC0                       (0 << MUX0)
+#define ADC_InputChannel_ADC1                       (1 << MUX0)
+#define ADC_InputChannel_ADC2                       (2 << MUX0)
+#define ADC_InputChannel_ADC3                       (3 << MUX0)
+#define ADC_InputChannel_ADC4                       (4 << MUX0)
+#define ADC_InputChannel_ADC5                       (5 << MUX0)
+#define ADC_InputChannel_ADC6                       (6 << MUX0)
+#define ADC_InputChannel_ADC7                       (7 << MUX0)
 
 
 /*************************************************************
@@ -50,27 +51,27 @@
  *      [2-7]: Different trigger sources, from different interrupts.
  *              Note: Interrupt sources need not be enabled. 
  *************************************************************/
-#define ADC_AutoTriggerSource_FreeRunningMode               0
-#define ADC_AutoTriggerSource_AnalogComparator              1
-#define ADC_AutoTriggerSource_ExternalInterrupt0            2
-#define ADC_AutoTriggerSource_Timer0CompareMatch            3
-#define ADC_AutoTriggerSource_Timer0Overflow                4
-#define ADC_AutoTriggerSource_Timer1CompareMatch            5
-#define ADC_AutoTriggerSource_Timer1Overflow                6
-#define ADC_AutoTriggerSource_Timer1CaptureEvent            7
+#define ADC_AutoTriggerSource_FreeRunningMode               (0 << ADTS0)
+#define ADC_AutoTriggerSource_AnalogComparator              (1 << ADTS0)
+#define ADC_AutoTriggerSource_ExternalInterrupt0            (2 << ADTS0)
+#define ADC_AutoTriggerSource_Timer0CompareMatch            (3 << ADTS0)
+#define ADC_AutoTriggerSource_Timer0Overflow                (4 << ADTS0)
+#define ADC_AutoTriggerSource_Timer1CompareMatch            (5 << ADTS0)
+#define ADC_AutoTriggerSource_Timer1Overflow                (6 << ADTS0)
+#define ADC_AutoTriggerSource_Timer1CaptureEvent            (7 << ADTS0)
 
 
 /*************************************************************
  * Description: aDC Clock Prescale options.
  * 
  *************************************************************/
-#define ADC_ClockPrescale_2                 1
-#define ADC_ClockPrescale_4                 2
-#define ADC_ClockPrescale_8                 3
-#define ADC_ClockPrescale_16                4
-#define ADC_ClockPrescale_32                5
-#define ADC_ClockPrescale_64                6
-#define ADC_ClockPrescale_128               7
+#define ADC_ClockPrescale_2                 (1 << ADPS0)
+#define ADC_ClockPrescale_4                 (2 << ADPS0)
+#define ADC_ClockPrescale_8                 (3 << ADPS0)
+#define ADC_ClockPrescale_16                (4 << ADPS0)
+#define ADC_ClockPrescale_32                (5 << ADPS0)
+#define ADC_ClockPrescale_64                (6 << ADPS0)
+#define ADC_ClockPrescale_128               (7 << ADPS0)
 
 
 /*************************************************************
@@ -90,7 +91,8 @@ typedef u8 ADC_tuClockPrescale;
  *************************************************************/
 typedef enum {
     ADC_enuOk = 0,
-    ADC_enuConversionInProgress
+    ADC_enuNullPointer,
+    ADC_enuTimeout
 } ADC_tenuErrorStatus;
 
 
@@ -153,24 +155,22 @@ void ADC_voidDisableADC(void);
 /*************************************************************
  * Description: Start a conversion (asynchronous).
  * Parameters:
- *      [X] 
+ *      [X]
  * Return:
- *      Error status:
- *          [Ok]: Successfull.
- *          [ConversionInProgress]: Failed due to ongoing conversion.
+ *      None
  *************************************************************/
-ADC_tenuErrorStatus ADC_enuStartConversion(void);
+void ADC_voidStartConversion(void);
 
 
 /*************************************************************
  * Description: Get value of conversion.
  *                  Note: To be used inside callback function.
  * Parameters:
- *      [1] Address, to return result into.
+ *      [X]
  * Return:
- *      None
+ *      Value.
  *************************************************************/
-void ADC_enuGetValue(u16 *);
+u16 ADC_u16Value(void);
 
 
 /*************************************************************
