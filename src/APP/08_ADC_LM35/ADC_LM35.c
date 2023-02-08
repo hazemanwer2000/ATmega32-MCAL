@@ -7,7 +7,6 @@
  * 
  *************************************************************/
 
-
 #include "Std_Types.h"
 #include "Bit_Utils.h"
 
@@ -17,37 +16,7 @@
 #include "SEVEN_SEGMENT_Cfg.h"
 #include "GLOBAL_INT.h"
 #include "ADC.h"
-
-#include "Delay.h"
-
-
-/*************************************************************
- * Description: The transition's delay, in milliseconds.
- * 
- *************************************************************/
-#define DELAY_MS            1000
-
-
-/*************************************************************
- * Description: Maximum/Minimum number to display.
- * 
- *************************************************************/
-#define MAX_NUMBER          9
-#define MIN_NUMBER          0
-
-
-u8 flag = 1;
-
-
-/*************************************************************
- * Description: Maximum/Minimum number to display.
- * 
- *************************************************************/
-void APP_08_callback(void)
-{
-    SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplay, ADC_u16GetValue() / 103);
-    flag = 1;
-}
+#include "LM35.h"
 
 
 /*************************************************************
@@ -58,7 +27,8 @@ void APP_08_callback(void)
  *************************************************************/
 void ADC_LM35()
 {
-    ADC_tenuErrorStatus status;
+    LM35_tenuErrorStatus status;
+    double reading;
     u16 value;
 
     GLOBAL_INT_voidInit();
@@ -67,17 +37,9 @@ void ADC_LM35()
     SEVEN_SEGMENT_enuInit();
     ADC_voidInit();
 
-    ADC_voidConfigureInputChannel(ADC_InputChannel_ADC7);
-    ADC_voidEnableInterrupt();
-    ADC_voidSetCallback(&APP_07_callback);
-
-    while (1) {
-        if (flag == 1) {
-            flag = 0;
-            ADC_voidStartConversion();
-        }
-    }
 /*
+    ADC_voidConfigureInputChannel(ADC_InputChannel_ADC7);
+
     while (1) {
         status = ADC_enuStartConversionAndWait(&value);
         
@@ -86,4 +48,15 @@ void ADC_LM35()
         }
     }
 */
+
+    while (1) {
+        status = LM35_enuGetValue(0, &reading);
+        
+        if (status == LM35_enuOk) {
+            value = (u16) reading;
+            SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayLow, value % 10);
+            value /= 10;
+            SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayHigh, value % 10);
+        }
+    }
 }

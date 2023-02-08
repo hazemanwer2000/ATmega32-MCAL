@@ -25,7 +25,7 @@ typedef u8 SEVEN_SEGMENT_tuNumber;
  * Description: Number of 7-segment displays in the hardware.
  * 
  *************************************************************/
-#define SEVEN_SEGMENT_DISPLAY_COUNT      1
+#define SEVEN_SEGMENT_DISPLAY_COUNT      2
 
 
 /*************************************************************
@@ -33,7 +33,8 @@ typedef u8 SEVEN_SEGMENT_tuNumber;
  * 
  *************************************************************/
 typedef enum {
-    SEVEN_SEGMENT_enuDisplay = 0
+    SEVEN_SEGMENT_enuDisplayHigh = 0,
+    SEVEN_SEGMENT_enuDisplayLow
 } SEVEN_SEGMENT_tenuDisplayName;
 
 

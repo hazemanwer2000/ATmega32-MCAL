@@ -44,10 +44,10 @@ u8 flag = 1;
  * 
  *************************************************************/
 void APP_07_callback(void)
-{
+{/*
     SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplay, ADC_u16GetValue() / 103);
     flag = 1;
-}
+*/}
 
 
 /*************************************************************

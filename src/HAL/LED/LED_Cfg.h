@@ -17,7 +17,7 @@
  * Description: Number of LEDs connected to the hardware.
  * 
  *************************************************************/
-#define LED_NUM_OF_LEDS         9
+#define LED_NUM_OF_LEDS         14
 
 
 /*************************************************************
