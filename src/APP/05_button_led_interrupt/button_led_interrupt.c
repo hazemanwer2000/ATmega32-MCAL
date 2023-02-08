@@ -44,7 +44,7 @@ ISR (INT1_vect) {
 
 /*************************************************************
  * Description: Entry point to the application.
- * Parameters:
+ * Parameters:vb
  *      [X]
  * 
  *************************************************************/
@@ -53,6 +53,5 @@ void button_led_interrupt() {
     LED_enuInit();
     EXT_INT_voidInit();
     GLOBAL_INT_voidInit();
- LED_enuLedOn(++cnt);
     while (1) {}
 }

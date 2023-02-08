@@ -1,14 +1,15 @@
 /*************************************************************
  * 
- * Filename: main.c
- * Description: Contains 'main' function, which calls upon an application.
+ * Filename: ADC_Priv.h
+ * Description: Private header file of the ADC driver.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "keypad_testing.h"
+#ifndef __ADC_PRIV_H__
+#define __ADC_PRIV_H__
 
-void main(void) {
-    keypad_testing();
-}
+
+
+#endif /* __ADC_PRIV_H__ */

@@ -1,7 +1,7 @@
 /*************************************************************
  * 
  * Filename: Std_Types.h
- * Description: Standard type-definitions file of DIO module in ATmega32 uC.
+ * Description: Standard type-definitions file, relevant to the ATmega32 uC.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 

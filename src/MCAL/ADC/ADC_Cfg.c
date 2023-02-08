@@ -1,14 +1,10 @@
 /*************************************************************
  * 
- * Filename: main.c
- * Description: Contains 'main' function, which calls upon an application.
+ * Filename: ADC_Cfg.c
+ * Description: Configuration source file of the ADC driver.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "keypad_testing.h"
-
-void main(void) {
-    keypad_testing();
-}
+#include "ADC_Cfg.h"

@@ -19,7 +19,8 @@
  * Return:
  *      None.
  *************************************************************/
-void EXT_INT_voidInit(void) {
+void EXT_INT_voidInit(void)
+{
     MCUCR = REPLACE_FIELD(MCUCR, ISC11, ISC00, BIN_CONCAT(EXT_INT_INT1_CFG, EXT_INT_INT0_CFG));
     MCUCSR = REPLACE_BIT(MCUCSR, ISC2, (1 & EXT_INT_INT2_CFG));
     GICR = REPLACE_FIELD(GICR, INT2, INT0, MAKE_NIBBLE(0, EXT_INT_INT1_STATE, EXT_INT_INT0_STATE, EXT_INT_INT2_STATE));
