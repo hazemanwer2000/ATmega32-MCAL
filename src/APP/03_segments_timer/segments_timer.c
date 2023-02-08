@@ -18,7 +18,6 @@
 
 #include "Delay.h"
 
-
 /*************************************************************
  * Description: The transition's delay, in milliseconds.
  * 
@@ -40,11 +39,11 @@
  *      [X]
  * 
  *************************************************************/
-void hold_set(int i) {
+void hold_set(int i) {/*
     delay_ms(DELAY_MS);
     SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayLeastSignificant, i % 10);
     SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayMostSignificant, i / 10);
-}
+*/}
 
 
 /*************************************************************
@@ -53,7 +52,7 @@ void hold_set(int i) {
  *      [X]
  * 
  *************************************************************/
-void segments_timer() {
+void segments_timer() {/*
     s8 i = 0;
 
     DIO_voidInit();
@@ -67,4 +66,4 @@ void segments_timer() {
         for (i = MAX_NUMBER - 1; i >= MIN_NUMBER; i--)
             hold_set(i);
     }
-}
+*/}

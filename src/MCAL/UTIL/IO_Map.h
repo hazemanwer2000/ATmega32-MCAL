@@ -10,6 +10,42 @@
 
 #include "Std_Types.h"
 
+/*************************************************************
+ * Description: Interrupt service routine macro-function.
+ *
+ *************************************************************/
+#define ISRx__(ISR_NO) \
+void __vector_##ISR_NO(void) __attribute__((signal)); \
+void __vector_##ISR_NO(void)
+
+#define ISRx(ISR_NO)                ISRx__(ISR_NO)
+
+
+/*************************************************************
+ * Description: Interrupt options.
+ *
+ *************************************************************/
+#define VECT_RESET                    0
+#define VECT_INT0                     1
+#define VECT_INT1                     2
+#define VECT_INT2                     3
+#define VECT_TIMER2_COMP              4
+#define VECT_TIMER2_OVF               5
+#define VECT_TIMER1_CAPT              6
+#define VECT_TIMER1_COMPA             7
+#define VECT_TIMER1_COMPB             8
+#define VECT_TIMER1_OVF               9
+#define VECT_TIMER0_COMP              10
+#define VECT_TIMER0_OVF               11
+#define VECT_SPI_STC                  12
+#define VECT_USART_RXC                13
+#define VECT_USART_UDRE               14
+#define VECT_USART_TXC                15
+#define VECT_ADC                      16
+#define VECT_EE_RDY                   17
+#define VECT_ANA_COMP                 18
+#define VECT_TWI                      19
+#define VECT_SPM_RDY                  20
 
 
 /*************************************************************

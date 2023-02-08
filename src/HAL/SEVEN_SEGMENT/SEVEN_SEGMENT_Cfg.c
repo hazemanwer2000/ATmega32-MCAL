@@ -20,9 +20,5 @@ SEVEN_SEGMENT_tstrucDisplayCfg SEVEN_SEGMENT_strucDisplayCfgs[SEVEN_SEGMENT_DISP
     {
         .SEVEN_SEGMENT_uPins = {0, 1, 2, 3, 4, 5, 6},
         .SEVEN_SEGMENT_uInitNumber = 0
-    },
-    {
-        .SEVEN_SEGMENT_uPins = {24, 25, 26, 27, 28, 29, 30},
-        .SEVEN_SEGMENT_uInitNumber = 0
     }
 };

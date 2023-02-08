@@ -170,7 +170,7 @@ void ADC_voidStartConversion(void);
  * Return:
  *      Value.
  *************************************************************/
-u16 ADC_u16Value(void);
+u16 ADC_u16GetValue(void);
 
 
 /*************************************************************
@@ -180,7 +180,7 @@ u16 ADC_u16Value(void);
  * Return:
  *      None
  *************************************************************/
-void ADC_enuSetCallback(void (*)(void));
+void ADC_voidSetCallback(void (*)(void));
 
 
 /*************************************************************
@@ -244,6 +244,19 @@ void ADC_voidDisableAutoTrigger(void);
  *      None.
  *************************************************************/
 void ADC_voidConfigureAutoTriggerSource(ADC_tuAutoTriggerSource);
+
+
+/******************** Short-Cut API(s) *********************/
+
+
+/*************************************************************
+ * Description: Initialization of ADC module.
+ * Parameters:
+ *      [X]
+ * Return:
+ *      None.
+ *************************************************************/
+void ADC_voidInit(void);
 
 
 #endif /* __ADC_H__ */

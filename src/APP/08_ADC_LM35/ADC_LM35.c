@@ -1,7 +1,7 @@
 /*************************************************************
  * 
- * Filename: ADC_potentiometer.c
- * Description: Application, ADC and potentiometer.
+ * Filename: ADC_LM35.c
+ * Description: Application, ADC and LM35.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
@@ -43,7 +43,7 @@ u8 flag = 1;
  * Description: Maximum/Minimum number to display.
  * 
  *************************************************************/
-void APP_07_callback(void)
+void APP_08_callback(void)
 {
     SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplay, ADC_u16GetValue() / 103);
     flag = 1;
@@ -56,7 +56,7 @@ void APP_07_callback(void)
  *      [X]
  *  
  *************************************************************/
-void ADC_potentiometer()
+void ADC_LM35()
 {
     ADC_tenuErrorStatus status;
     u16 value;

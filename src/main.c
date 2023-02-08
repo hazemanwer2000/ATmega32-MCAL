@@ -7,8 +7,8 @@
  * 
  *************************************************************/
 
-#include "ADC_potentiometer.h"
+#include "ADC_LM35.h"
 
 void main(void) {
-    ADC_potentiometer();
+    ADC_LM35();
 }

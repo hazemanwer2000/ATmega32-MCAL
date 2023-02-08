@@ -10,6 +10,15 @@
 #ifndef __ADC_CFG_H__
 #define __ADC_CFG_H__
 
+#include "ADC.h"
+
+
+/*************************************************************
+ * Description: Initialization of clock prescaler, and voltage reference.
+ * 
+ *************************************************************/
+#define ADC_CFG_CLOCK_PRESCALER                 ADC_ClockPrescale_2
+#define ADC_CFG_VOLTAGE_REFERENCE               ADC_VoltageReference_AVCC
 
 
 #endif /* __ADC_CFG_H__ */

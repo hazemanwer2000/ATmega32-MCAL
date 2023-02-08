@@ -42,10 +42,10 @@
  *      [X]
  * 
  *************************************************************/
-void set(int i) {
+void set(int i) {/*
     SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayLeastSignificant, i % 10);
     SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayMostSignificant, i / 10);
-}
+*/}
 
 
 /*************************************************************
@@ -54,7 +54,7 @@ void set(int i) {
  *      [X]
  * 
  *************************************************************/
-void segments_counter() {
+void segments_counter() {/*
     s8 cnt = 0;
     BUTTON_tenuButtonState stateInc, stateDec;
 
@@ -87,4 +87,4 @@ void segments_counter() {
             }
         }
     }
-}
+*/}
