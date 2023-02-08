@@ -36,7 +36,7 @@
 #define MIN_NUMBER          0
 
 
-u8 flag = 1;
+u8 flag = 0;
 
 
 /*************************************************************
@@ -44,10 +44,21 @@ u8 flag = 1;
  * 
  *************************************************************/
 void APP_07_callback(void)
-{/*
-    SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplay, ADC_u16GetValue() / 103);
+{
+/*
+    u16 value = (u16) ((ADC_u16GetValue() / 1023.0)*100.0);
+
+    if (value > 99) {
+        value = 99;
+    }
+
+    SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayLow, value % 10);
+    value /= 10;
+    SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayHigh, value % 10);
+*/
     flag = 1;
-*/}
+    // ADC_voidStartConversion();
+}
 
 
 /*************************************************************
@@ -68,6 +79,31 @@ void ADC_potentiometer()
     ADC_voidInit();
 
     ADC_voidConfigureInputChannel(ADC_InputChannel_ADC7);
+
+    ADC_voidConfigureAutoTriggerSource(ADC_AutoTriggerSource_FreeRunningMode);
+    ADC_voidEnableAutoTrigger();
+    
+    ADC_voidSetCallback(&APP_07_callback);
+    ADC_voidEnableInterrupt();
+    
+    ADC_voidStartConversion();
+
+    while(1) {
+        if (flag == 1) {
+            flag = 0;
+            value = (u16) ((ADC_u16GetValue() / 1023.0)*100.0);
+
+            if (value > 99) {
+                value = 99;
+            }
+
+            SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayLow, value % 10);
+            value /= 10;
+            SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplayHigh, value % 10);
+        }
+    }
+/*
+    ADC_voidConfigureInputChannel(ADC_InputChannel_ADC7);
     ADC_voidEnableInterrupt();
     ADC_voidSetCallback(&APP_07_callback);
 
@@ -77,12 +113,14 @@ void ADC_potentiometer()
             ADC_voidStartConversion();
         }
     }
+*/
 /*
     while (1) {
         status = ADC_enuStartConversionAndWait(&value);
         
         if (status == ADC_enuOk) {
-            SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplay, value / 103);
+            value /= 10.25;
+            SEVEN_SEGMENT_enuSetNumber(SEVEN_SEGMENT_enuDisplay, value / 10.25);
         }
     }
 */

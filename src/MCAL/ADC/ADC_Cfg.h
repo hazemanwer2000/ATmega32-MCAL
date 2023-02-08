@@ -17,7 +17,7 @@
  * Description: Initialization of clock prescaler, and voltage reference.
  * 
  *************************************************************/
-#define ADC_CFG_CLOCK_PRESCALER                 ADC_ClockPrescale_2
+#define ADC_CFG_CLOCK_PRESCALER                 ADC_ClockPrescale_128
 #define ADC_CFG_VOLTAGE_REFERENCE               ADC_VoltageReference_AVCC
 
 
