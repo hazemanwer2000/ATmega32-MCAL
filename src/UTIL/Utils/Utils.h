@@ -18,4 +18,13 @@
 #define MAX(A, B)               ((A) > (B) ? (A) : (B))
 #define MIN(A, B)               ((A) < (B) ? (A) : (B))
 
+
+/*************************************************************
+ * Description: Maximum/minimum functions.
+ * 
+ *************************************************************/
+u8 max_u8(u8 A, u8 B);
+u8 min_u8(u8 A, u8 B);
+
+
 #endif /* __UTILS_H__ */
