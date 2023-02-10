@@ -98,4 +98,14 @@ DIO_tenuErrorStatus DIO_enuClearPin(DIO_tuPinNumber Cpy_uPinNumber);
 DIO_tenuErrorStatus DIO_enuGetPin(DIO_tuPinNumber Cpy_uPinNumber, DIO_tenuPinState *Add_enuPinState);
 
 
+/*************************************************************
+ * Description: Set an output pin in the DIO module (High/Low)
+ * Parameters:
+ *      [1] Pin number (0-31). 
+ * Return:
+ *      Error status (DIO_enuOk, DIO_enuInvalidPinNumber, DIO_enuNotOutputPin)
+ *************************************************************/
+DIO_tenuErrorStatus DIO_enuSetPinState(DIO_tuPinNumber Cpy_uPinNumber, DIO_tenuPinState Cpy_enuPinState);
+
+
 #endif /* __DIO_H__ */

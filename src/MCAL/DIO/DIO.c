@@ -244,3 +244,32 @@ DIO_tenuErrorStatus DIO_enuGetPin(DIO_tuPinNumber Cpy_uPinNumber, DIO_tenuPinSta
     
     return Loc_enuErrorStatus;
 }
+
+
+/*************************************************************
+ * Description: Set an output pin in the DIO module (High/Low)
+ * Parameters:
+ *      [1] Pin number (0-31). 
+ * Return:
+ *      Error status (DIO_enuOk, DIO_enuInvalidPinNumber, DIO_enuNotOutputPin)
+ *************************************************************/
+DIO_tenuErrorStatus DIO_enuSetPinState(DIO_tuPinNumber Cpy_uPinNumber, DIO_tenuPinState Cpy_enuPinState) {
+    u8 Loc_u8BitNumber = 0;
+    volatile u8 *Loc_pu8RegDDR = NULL, *Loc_pu8RegPORT = NULL, *Loc_pu8RegPIN = NULL;
+    DIO_tenuErrorStatus Loc_enuErrorStatus = DIO_enuOk;
+    
+    if (Cpy_uPinNumber > DIO_PIN_COUNT - 1) {
+        Loc_enuErrorStatus = DIO_enuInvalidPinNumber;
+    } else {
+        DIO_voidDecodeBitNumber(Cpy_uPinNumber, &Loc_u8BitNumber);
+        DIO_voidDecodeRegisters(Cpy_uPinNumber, &Loc_pu8RegDDR, &Loc_pu8RegPORT, &Loc_pu8RegPIN);
+        
+        if (GET_BIT(*Loc_pu8RegDDR, Loc_u8BitNumber) != DIO_DIR_OUTPUT) {
+            Loc_enuErrorStatus = DIO_enuNotOutputPin;
+        } else {
+            *Loc_pu8RegPORT = REPLACE_BIT(*Loc_pu8RegPORT, Loc_u8BitNumber, Cpy_enuPinState);
+        }
+    }
+    
+    return Loc_enuErrorStatus;
+}
