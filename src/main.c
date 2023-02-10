@@ -7,8 +7,8 @@
  * 
  *************************************************************/
 
-#include "ADC_potentiometer.h"
+#include "LCD_Testing.h"
 
 void main(void) {
-    ADC_potentiometer();
+    LCD_Testing();
 }

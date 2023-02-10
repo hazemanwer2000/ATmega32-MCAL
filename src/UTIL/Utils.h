@@ -1,25 +1,21 @@
 /*************************************************************
  * 
- * Filename: LCD_Testing.c
- * Description: Application, LCD.
+ * Filename: Utils.h
+ * Description: Macros and function prototypes, performing various operations.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "DIO.h"
-#include "LCD.h"
+#ifndef __UTILS_H__
+#define __UTILS_H__
 
 
 /*************************************************************
- * Description: Entry point to the application.
- * Parameters:
- *      [X]
- *  
+ * Description: Maximum/minimum macro-functions.
+ * 
  *************************************************************/
-void LCD_Testing() {
-    DIO_voidInit();
-    LCD_enuInit();
-    
-    while (1) {}
-}
+#define MAX(A, B)               ((A) > (B) ? (A) : (B))
+#define MIN(A, B)               ((A) < (B) ? (A) : (B))
+
+#endif /* __UTILS_H__ */

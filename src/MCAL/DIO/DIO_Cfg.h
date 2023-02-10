@@ -44,18 +44,18 @@
  * Description: Configuration of pin direction (0-32).
  * 
  *************************************************************/
-#define DIO_PIN0_DIR                DIO_DIR_OUTPUT
-#define DIO_PIN1_DIR                DIO_DIR_OUTPUT
-#define DIO_PIN2_DIR                DIO_DIR_OUTPUT
-#define DIO_PIN3_DIR                DIO_DIR_OUTPUT
-#define DIO_PIN4_DIR                DIO_DIR_OUTPUT
-#define DIO_PIN5_DIR                DIO_DIR_OUTPUT
-#define DIO_PIN6_DIR                DIO_DIR_OUTPUT
+#define DIO_PIN0_DIR                DIO_DIR_INPUT
+#define DIO_PIN1_DIR                DIO_DIR_INPUT
+#define DIO_PIN2_DIR                DIO_DIR_INPUT
+#define DIO_PIN3_DIR                DIO_DIR_INPUT
+#define DIO_PIN4_DIR                DIO_DIR_INPUT
+#define DIO_PIN5_DIR                DIO_DIR_INPUT
+#define DIO_PIN6_DIR                DIO_DIR_INPUT
 #define DIO_PIN7_DIR                DIO_DIR_INPUT
 
-#define DIO_PIN8_DIR                DIO_DIR_INPUT
-#define DIO_PIN9_DIR                DIO_DIR_INPUT
-#define DIO_PIN10_DIR               DIO_DIR_INPUT
+#define DIO_PIN8_DIR                DIO_DIR_OUTPUT
+#define DIO_PIN9_DIR                DIO_DIR_OUTPUT
+#define DIO_PIN10_DIR               DIO_DIR_OUTPUT
 #define DIO_PIN11_DIR               DIO_DIR_INPUT
 #define DIO_PIN12_DIR               DIO_DIR_INPUT
 #define DIO_PIN13_DIR               DIO_DIR_INPUT
@@ -78,25 +78,25 @@
 #define DIO_PIN28_DIR               DIO_DIR_OUTPUT
 #define DIO_PIN29_DIR               DIO_DIR_OUTPUT
 #define DIO_PIN30_DIR               DIO_DIR_OUTPUT
-#define DIO_PIN31_DIR               DIO_DIR_INPUT
+#define DIO_PIN31_DIR               DIO_DIR_OUTPUT
 
 
 /*************************************************************
  * Description: Configuration of pins (0-32).
  * 
  *************************************************************/
-#define DIO_PIN0_CFG                  DIO_CFG_LOW
-#define DIO_PIN1_CFG                  DIO_CFG_LOW
-#define DIO_PIN2_CFG                  DIO_CFG_LOW
-#define DIO_PIN3_CFG                  DIO_CFG_LOW
-#define DIO_PIN4_CFG                  DIO_CFG_LOW
-#define DIO_PIN5_CFG                  DIO_CFG_LOW
-#define DIO_PIN6_CFG                  DIO_CFG_LOW
+#define DIO_PIN0_CFG                  DIO_CFG_HI_Z
+#define DIO_PIN1_CFG                  DIO_CFG_HI_Z
+#define DIO_PIN2_CFG                  DIO_CFG_HI_Z
+#define DIO_PIN3_CFG                  DIO_CFG_HI_Z
+#define DIO_PIN4_CFG                  DIO_CFG_HI_Z
+#define DIO_PIN5_CFG                  DIO_CFG_HI_Z
+#define DIO_PIN6_CFG                  DIO_CFG_HI_Z
 #define DIO_PIN7_CFG                  DIO_CFG_HI_Z
 
-#define DIO_PIN8_CFG                  DIO_CFG_HI_Z
-#define DIO_PIN9_CFG                  DIO_CFG_HI_Z
-#define DIO_PIN10_CFG                 DIO_CFG_HI_Z
+#define DIO_PIN8_CFG                  DIO_CFG_LOW
+#define DIO_PIN9_CFG                  DIO_CFG_LOW
+#define DIO_PIN10_CFG                 DIO_CFG_LOW
 #define DIO_PIN11_CFG                 DIO_CFG_HI_Z
 #define DIO_PIN12_CFG                 DIO_CFG_HI_Z
 #define DIO_PIN13_CFG                 DIO_CFG_HI_Z
@@ -119,7 +119,7 @@
 #define DIO_PIN28_CFG                 DIO_CFG_LOW
 #define DIO_PIN29_CFG                 DIO_CFG_LOW
 #define DIO_PIN30_CFG                 DIO_CFG_LOW
-#define DIO_PIN31_CFG                 DIO_CFG_HI_Z
+#define DIO_PIN31_CFG                 DIO_CFG_LOW
 
 
 #endif /* __DIO_CFG_H__ */

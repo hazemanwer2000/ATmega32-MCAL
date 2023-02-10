@@ -14,13 +14,6 @@
 
 
 /*************************************************************
- * Description: LCD type-definitions.
- * 
- *************************************************************/
-typedef u8 
-
-
-/*************************************************************
  * Description: LCD error status.
  * 
  *************************************************************/
@@ -47,6 +40,26 @@ typedef enum {
 
 #define LCD_CMD_SHIFT_CURSOR_RIGHT              0b00010100
 #define LCD_CMD_SHIFT_CURSOR_LEFT               0b00010000
+
+
+/*************************************************************
+ * Description: Write command to LCD.
+ * Parameters:
+ *      [1] Command.
+ * Return:
+ *      Error status (LCD_enuOk, LCD_enuInvalidPinCfg)
+ *************************************************************/
+LCD_tenuErrorStatus LCD_enuWriteCommand(u8 Cpy_u8Command);
+
+
+/*************************************************************
+ * Description: Initialize LCD.
+ * Parameters:
+ *      [X]
+ * Return:
+ *      Error status (LCD_enuOk, LCD_enuInvalidPinCfg)
+ *************************************************************/
+LCD_tenuErrorStatus LCD_enuInit();
 
 
 #endif /* __LCD_H__ */
