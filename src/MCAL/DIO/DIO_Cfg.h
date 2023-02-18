@@ -103,10 +103,10 @@
 #define DIO_PIN14_CFG                 DIO_CFG_HI_Z
 #define DIO_PIN15_CFG                 DIO_CFG_HI_Z
 
-#define DIO_PIN16_CFG                 DIO_CFG_HI_Z
-#define DIO_PIN17_CFG                 DIO_CFG_HI_Z
-#define DIO_PIN18_CFG                 DIO_CFG_HI_Z
-#define DIO_PIN19_CFG                 DIO_CFG_HI_Z
+#define DIO_PIN16_CFG                 DIO_CFG_PULL_UP
+#define DIO_PIN17_CFG                 DIO_CFG_PULL_UP
+#define DIO_PIN18_CFG                 DIO_CFG_PULL_UP
+#define DIO_PIN19_CFG                 DIO_CFG_PULL_UP
 #define DIO_PIN20_CFG                 DIO_CFG_HI_Z
 #define DIO_PIN21_CFG                 DIO_CFG_HI_Z
 #define DIO_PIN22_CFG                 DIO_CFG_HI_Z

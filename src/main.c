@@ -7,8 +7,8 @@
  * 
  *************************************************************/
 
-#include "LCD_Testing.h"
+#include "LCD_Ping_Pong.h"
 
 void main(void) {
-    LCD_Testing();
+    LCD_Ping_Pong();
 }

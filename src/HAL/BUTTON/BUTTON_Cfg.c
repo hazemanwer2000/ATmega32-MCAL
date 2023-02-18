@@ -15,6 +15,8 @@
  * 
  *************************************************************/
 const BUTTON_tstrucButtonCfg BUTTON_strucButtonCfgs[BUTTON_NUM_OF_BUTTONS] = {
-    {26, BUTTON_enuActiveHigh},
-    {27, BUTTON_enuActiveHigh}
+    {16, BUTTON_enuActiveLow},
+    {17, BUTTON_enuActiveLow},
+    {18, BUTTON_enuActiveLow},
+    {19, BUTTON_enuActiveLow}
 };

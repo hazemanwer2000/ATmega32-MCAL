@@ -25,7 +25,7 @@
  * Description: Number of LEDs connected to the hardware.
  * 
  *************************************************************/
-#define BUTTON_NUM_OF_BUTTONS      2
+#define BUTTON_NUM_OF_BUTTONS      4
 
 
 /*************************************************************
