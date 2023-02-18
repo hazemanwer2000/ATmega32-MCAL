@@ -1,21 +1,17 @@
 /*************************************************************
  * 
- * Filename: LM35_Cfg.c
- * Description: Configuration source file of the LM35 driver.
+ * Filename: ADC_LDR.c
+ * Description: Application, ADC and LDR.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "LM35_Cfg.h"
-
 
 /*************************************************************
- * Description: Sensor configuration.
+ * Description: Entry point to the application.
+ * Parameters:
+ *      [X]
  * 
  *************************************************************/
-LM35_tstrucSensorCfg LM35_strucSensorCfgs[LM35_SENSOR_COUNT] = {
-    {ADC_InputChannel_ADC0},
-    {ADC_InputChannel_ADC1},
-    {ADC_InputChannel_ADC2}
-};
+void ADC_LDR();

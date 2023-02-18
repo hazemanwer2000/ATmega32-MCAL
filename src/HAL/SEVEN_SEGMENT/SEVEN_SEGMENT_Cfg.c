@@ -18,7 +18,7 @@
  *************************************************************/
 SEVEN_SEGMENT_tstrucDisplayCfg SEVEN_SEGMENT_strucDisplayCfgs[SEVEN_SEGMENT_DISPLAY_COUNT] = {
     {
-        .SEVEN_SEGMENT_uPins = {0, 1, 2, 3, 4, 5, 6},
+        .SEVEN_SEGMENT_uPins = {8, 9, 10, 11, 12, 13, 14},
         .SEVEN_SEGMENT_uInitNumber = 0
     },
     {

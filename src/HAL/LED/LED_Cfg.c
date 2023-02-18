@@ -15,13 +15,13 @@
  * 
  *************************************************************/
 const LED_tstrucLedCfg LED_strucLedCfgs[LED_NUM_OF_LEDS] = {
-    {0, LED_enuActiveHigh, LED_enuLedStateOff},
-    {1, LED_enuActiveHigh, LED_enuLedStateOff},
-    {2, LED_enuActiveHigh, LED_enuLedStateOff},
-    {3, LED_enuActiveHigh, LED_enuLedStateOff},
-    {4, LED_enuActiveHigh, LED_enuLedStateOff},
-    {5, LED_enuActiveHigh, LED_enuLedStateOff},
-    {6, LED_enuActiveHigh, LED_enuLedStateOff},
+    {8, LED_enuActiveHigh, LED_enuLedStateOff},
+    {9, LED_enuActiveHigh, LED_enuLedStateOff},
+    {10, LED_enuActiveHigh, LED_enuLedStateOff},
+    {11, LED_enuActiveHigh, LED_enuLedStateOff},
+    {12, LED_enuActiveHigh, LED_enuLedStateOff},
+    {13, LED_enuActiveHigh, LED_enuLedStateOff},
+    {14, LED_enuActiveHigh, LED_enuLedStateOff},
 
     {24, LED_enuActiveHigh, LED_enuLedStateOff},
     {25, LED_enuActiveHigh, LED_enuLedStateOff},

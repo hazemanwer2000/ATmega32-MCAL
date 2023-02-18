@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "lm35_cfg.h": "c",
+        "seven_segment_cfg.h": "c"
+    }
+}

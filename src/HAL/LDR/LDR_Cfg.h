@@ -1,14 +1,14 @@
 /*************************************************************
  * 
- * Filename: LM35_Cfg.h
- * Description: Configuration header file of the LM35 driver.
+ * Filename: LDR_Cfg.h
+ * Description: Configuration header file of the LDR driver.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#ifndef __LM35_CFG_H__
-#define __LM35_CFG_H__
+#ifndef __LDR_CFG_H__
+#define __LDR_CFG_H__
 
 #include "ADC.h"
 
@@ -17,7 +17,7 @@
  * Description: Sensor maximum count.
  * 
  *************************************************************/
-#define LM35_SENSOR_COUNT           3
+#define LDR_SENSOR_COUNT           3
 
 
 /*************************************************************
@@ -25,8 +25,8 @@
  * 
  *************************************************************/
 typedef enum {
-    LM35_enuSensor
-} LM35_tenuSensor;
+    LDR_enuSensor
+} LDR_tenuSensor;
 
 
 /*************************************************************
@@ -35,14 +35,14 @@ typedef enum {
  *************************************************************/
 typedef struct {
     ADC_tuInputChannel inputChannel;
-} LM35_tstrucSensorCfg;
+} LDR_tstrucSensorCfg;
 
 
 /*************************************************************
  * Description: (Declaration) Sensor configuration.
  * 
  *************************************************************/
-extern LM35_tstrucSensorCfg LM35_strucSensorCfgs[LM35_SENSOR_COUNT];
+extern LDR_tstrucSensorCfg LDR_strucSensorCfgs[LDR_SENSOR_COUNT];
 
 
-#endif /* __LM35_CFG_H__ */
+#endif /* __LDR_CFG_H__ */
