@@ -131,15 +131,14 @@ LCD_tenuErrorStatus LCD_enuInit() {
     delay_ms(LCD_DELAY_MS_INITIAL);
     
     Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommandCustom(LCD_CMD_FUNCTION_SET, LCD_DELAY_MS_INITIAL_STAGE_1));
-    Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommandCustom(LCD_CMD_FUNCTION_SET, LCD_DELAY_MS_INITIAL_STAGE_2));
+    //Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommandCustom(LCD_CMD_FUNCTION_SET, LCD_DELAY_MS_INITIAL_STAGE_2));
 
-    Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_FUNCTION_SET));
-    Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_FUNCTION_SET));
+    //Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_FUNCTION_SET));
+    //Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_FUNCTION_SET));
 
-    Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_DISPLAY_OFF));
+    Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_CURSOR_ON_BLINK_ON));
     Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_CLEAR_DISPLAY));
     Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_ENTRY_MODE_SET));
-
     Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteCommand(LCD_CMD_CURSOR_ON_BLINK_ON));
 
     return Loc_enuErrorStatus;

@@ -1,14 +1,12 @@
 /*************************************************************
  * 
- * Filename: main.c
- * Description: Contains 'main' function, which calls upon an application.
+ * Filename: TIMER0_Cfg.c
+ * Description: Configuration source file of the TIMER0 driver.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-void entry_point(void);
-
-void main(void) {
-    entry_point();
-}
+#include "TIMER0_Cfg.h"
+#include "TIMER0_Types.h"
+#include "TIMER0.h"

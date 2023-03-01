@@ -35,7 +35,6 @@ u8 LCD_smile[8] = {
 };
 
 
-
 /*************************************************************
  * Description: Entry point to the application.
  * Parameters:

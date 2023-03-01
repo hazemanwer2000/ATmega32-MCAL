@@ -19,11 +19,11 @@
  * Description: LCD constants.
  * 
  *************************************************************/
-#define LCD_DELAY_MS_BETWEEN                    2
+#define LCD_DELAY_MS_BETWEEN                    3
 
-#define LCD_DELAY_MS_INITIAL                    41
-#define LCD_DELAY_MS_INITIAL_STAGE_1            5
-#define LCD_DELAY_MS_INITIAL_STAGE_2            1
+#define LCD_DELAY_MS_INITIAL                    1000
+#define LCD_DELAY_MS_INITIAL_STAGE_1            15
+#define LCD_DELAY_MS_INITIAL_STAGE_2            15
 
 #define LCD_RS_STATE_CMD                        DIO_enuLow
 #define LCD_RS_STATE_DATA                       DIO_enuHigh

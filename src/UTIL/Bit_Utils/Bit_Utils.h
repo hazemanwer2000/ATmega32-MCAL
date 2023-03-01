@@ -48,6 +48,13 @@
 
 
 /*************************************************************
+ * Description: Bit value and number.
+ * 
+ *************************************************************/
+#define BIT(BIT_VALUE, BIT_NO)          ((BIT_VALUE) << (BIT_NO))
+
+
+/*************************************************************
  * Description: Set, clear, get, and toggle bits within a register (returns, does not assign).
  * 
  *************************************************************/
