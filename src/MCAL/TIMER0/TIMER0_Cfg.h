@@ -13,7 +13,13 @@
 #include "TIMER0_Types.h"
 #include "TIMER0.h"
 
+
+/*************************************************************
+ * Description: Configuration of modes.
+ * 
+ *************************************************************/
 #define TIMER0_WaveformGenerationMode_Cfg           TIMER0_WaveformGenerationMode_Normal
 #define TIMER0_CompareMatchOutputMode_Cfg           TIMER0_CompareMatchOutputMode_Disconnected
+
 
 #endif /* __TIMER0_CFG_H__ */

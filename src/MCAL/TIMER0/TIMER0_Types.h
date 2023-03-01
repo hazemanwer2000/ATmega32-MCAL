@@ -12,6 +12,10 @@
 
 #include "Std_Types.h"
 
+/*************************************************************
+ * Description: (typedef) Configuration type.
+ * 
+ *************************************************************/
 typedef u8 TIMER0_tuCfg;
 
 #endif /* __TIMER0_TYPES_H__ */
