@@ -1,22 +1,27 @@
 /*************************************************************
  * 
- * Filename: LCD_Cfg.c
- * Description: Configuration source file of the LCD driver.
+ * Filename: ICU.h
+ * Description: Header (interface) file of the ICU driver.
  * Author: Eng. Hazem Anwer
  * Github: https://github.com/hazemanwer2000
  * 
  *************************************************************/
 
-#include "LCD_Cfg.h"
+#ifndef __ICU_H__
+#define __ICU_H__
+
+#include "ICU_Cfg.h"
+#include "ICU_Types.h"
 
 
 /*************************************************************
- * Description: LCD configuration.
- * 
+ * Description: Initialize ICU (Timer1).
+ * Parameters:
+ *      [1] Callback function.
+ * Return:
+ *      None.
  *************************************************************/
-LCD_tstrucLCDCfg LCD_strucLCDCfg = {
-    .PinD = {24, 25, 26, 27, 28, 29, 11, 31},
-    .PinRS = 8,
-    .PinRW = 9,
-    .PinE = 10
-};
+void ICU_voidInit(void (*fptr)(u64));
+
+
+#endif /* __ICU_H__ */

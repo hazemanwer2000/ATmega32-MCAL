@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "adc_priv.h": "c"
+        "adc_priv.h": "c",
+        "std_types.h": "c"
     }
 }

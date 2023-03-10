@@ -186,14 +186,30 @@ LCD_tenuErrorStatus LCD_enuWriteString(u8 *Add_u8Data) {
  *************************************************************/
 LCD_tenuErrorStatus LCD_enuWriteNumber(u16 Cpy_u16Data) {
     LCD_tenuErrorStatus Loc_enuErrorStatus = LCD_enuOk;
+    u16 Loc_u16Data = Cpy_u16Data;
+    u16 Loc_u16Order = 1;
+    u8 Loc_u8DigitCount = 0;
 
     if (Cpy_u16Data == 0) {
         LCD_enuWriteData('0');
     } else {
-        do {
-            Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteData((Cpy_u16Data % 10) + '0'));
+        
+        while (Loc_u16Data != 0) {
+            Loc_u16Data /= 10;
+            Loc_u16Order *= 10;
+            Loc_u8DigitCount++;
+        }
+
+        while (Cpy_u16Data != 0) {
+            Loc_u16Order /= 10;
+            Loc_u16Data += (Cpy_u16Data % 10) * Loc_u16Order;
             Cpy_u16Data /= 10;
-        } while (Cpy_u16Data != 0);
+        }
+
+        do {
+            Loc_enuErrorStatus = max_u8(Loc_enuErrorStatus, LCD_enuWriteData((Loc_u16Data % 10) + '0'));
+            Loc_u16Data /= 10;
+        } while (--Loc_u8DigitCount > 0);
     }
 
     return Loc_enuErrorStatus;
