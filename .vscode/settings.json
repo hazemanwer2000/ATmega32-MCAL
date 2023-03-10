@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "std_types.h": "c",
-        "segments_timer.h": "c"
-    }
-}

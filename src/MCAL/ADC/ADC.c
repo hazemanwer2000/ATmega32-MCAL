@@ -261,6 +261,7 @@ ISRx(VECT_ADC)
 void ADC_voidInit(void)
 {
     ADC_voidEnableADC();
-    ADC_voidConfigureClockPrescale(ADC_CFG_CLOCK_PRESCALER);
+    ADC_voidConfigureClockPrescale(ADC_CFG_CLOCK_PRESCALE);
     ADC_voidConfigureVoltageReference(ADC_CFG_VOLTAGE_REFERENCE);
+    ADC_voidConfigureInputChannel(ADC_CFG_INPUT_CHANNEL);
 }

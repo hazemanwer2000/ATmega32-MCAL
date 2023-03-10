@@ -56,7 +56,7 @@
 #define DIO_PIN8_DIR                DIO_DIR_INPUT
 #define DIO_PIN9_DIR                DIO_DIR_INPUT
 #define DIO_PIN10_DIR               DIO_DIR_INPUT
-#define DIO_PIN11_DIR               DIO_DIR_INPUT
+#define DIO_PIN11_DIR               DIO_DIR_OUTPUT
 #define DIO_PIN12_DIR               DIO_DIR_INPUT
 #define DIO_PIN13_DIR               DIO_DIR_INPUT
 #define DIO_PIN14_DIR               DIO_DIR_INPUT
@@ -97,7 +97,7 @@
 #define DIO_PIN8_CFG                  DIO_CFG_HI_Z
 #define DIO_PIN9_CFG                  DIO_CFG_HI_Z
 #define DIO_PIN10_CFG                 DIO_CFG_HI_Z
-#define DIO_PIN11_CFG                 DIO_CFG_HI_Z
+#define DIO_PIN11_CFG                 DIO_CFG_LOW
 #define DIO_PIN12_CFG                 DIO_CFG_HI_Z
 #define DIO_PIN13_CFG                 DIO_CFG_HI_Z
 #define DIO_PIN14_CFG                 DIO_CFG_HI_Z
