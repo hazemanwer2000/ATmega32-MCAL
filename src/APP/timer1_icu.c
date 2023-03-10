@@ -14,10 +14,14 @@
 #include "GLOBAL_INT.h"
 #include "Delay.h"
 
+u8 flag = 0;
+
 void onNewReading(u64 val) {
     LCD_enuWriteCommand(LCD_CMD_CLEAR_DISPLAY); 
     LCD_enuWriteNumber(val/10);
     LCD_enuWriteString(" cm");
+
+    flag = 1;
 }
 
 void entry_point() {
@@ -29,5 +33,10 @@ void entry_point() {
 
     ULTRASONIC_voidTrigger();
 
-    while (1);
+    while (1) {
+        if (flag == 1) {
+            flag = 0;
+            ULTRASONIC_voidTrigger();
+        }
+    };
 }
